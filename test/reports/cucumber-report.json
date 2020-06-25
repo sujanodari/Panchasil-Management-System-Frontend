@@ -1,0 +1,84 @@
+[
+  {
+    "description": "  As a part of institution\n  In order to login to the application\n  I want to register",
+    "elements": [
+      {
+        "id": "register-in-panchasil;user-registeration-vaidation-test",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "user registeration vaidation test",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am on the Panchasil Registration page",
+            "result": {
+              "status": "passed",
+              "duration": 7043924157
+            },
+            "line": 8,
+            "match": {
+              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/step-definitions/registration-steps.js:2"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I enter \"odarisujan@gmail.com\" and I enter \"Sujan Odari\" and I enter \"Male\" and I enter \"Damak\" and I enter \"08/24/2000\" and I enter \"9817091757\" and I enter \"Sujan Odari\" and I enter \"Damak\" and I enter \"9800987689\" and I enter \"Cat\" and I enter \"Student\" and I enter \"sujan1234\" and I enter \"sujan098\"",
+            "result": {
+              "status": "passed",
+              "duration": 1200301368
+            },
+            "line": 9,
+            "match": {
+              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/step-definitions/registration-steps.js:8"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see \"The date field is required.\"",
+            "result": {
+              "status": "passed",
+              "duration": 278902173
+            },
+            "line": 10,
+            "match": {
+              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/step-definitions/registration-steps.js:18"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 821535312
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/runtime/world.js:250"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@search",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "register-in-panchasil",
+    "keyword": "Feature",
+    "line": 2,
+    "name": "Register in Panchasil",
+    "tags": [
+      {
+        "name": "@search",
+        "line": 1
+      }
+    ],
+    "uri": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/features/registration.feature"
+  }
+]
