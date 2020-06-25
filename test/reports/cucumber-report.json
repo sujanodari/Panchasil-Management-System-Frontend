@@ -1,5 +1,87 @@
 [
   {
+    "description": "  As a registered and approved <user-type>\n  In order to login to the application\n  I want to be able to acess <user-type> dashboard",
+    "elements": [
+      {
+        "id": "login-in-panchasil;login-for-registered-and-approved-user",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Login for registered and approved user",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am on the Panchasil Login page",
+            "result": {
+              "status": "passed",
+              "duration": 8885549900
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\step-definitions\\login-steps.js:2"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I enter \"baxanacharya@gmail.com\" and I enter \"baxan1234\" and I click login",
+            "result": {
+              "status": "passed",
+              "duration": 785104800
+            },
+            "line": 9,
+            "match": {
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\step-definitions\\login-steps.js:7"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see \"Welcome\" in the results",
+            "result": {
+              "status": "passed",
+              "duration": 38769001
+            },
+            "line": 10,
+            "match": {
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\step-definitions\\login-steps.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 995348200
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\runtime\\world.js:250"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@search",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-in-panchasil",
+    "keyword": "Feature",
+    "line": 2,
+    "name": "Login in Panchasil",
+    "tags": [
+      {
+        "name": "@search",
+        "line": 1
+      }
+    ],
+    "uri": "C:/Users/baxan/Desktop/React/agile/Panchasil-Management-System-Frontend/test/features/login.feature"
+  },
+  {
     "description": "  As a part of institution\n  In order to login to the application\n  I want to register",
     "elements": [
       {
@@ -14,11 +96,11 @@
             "name": "I am on the Panchasil Registration page",
             "result": {
               "status": "passed",
-              "duration": 7043924157
+              "duration": 4709351199
             },
             "line": 8,
             "match": {
-              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/step-definitions/registration-steps.js:2"
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\step-definitions\\registration-steps.js:2"
             }
           },
           {
@@ -27,11 +109,11 @@
             "name": "I enter \"odarisujan@gmail.com\" and I enter \"Sujan Odari\" and I enter \"Male\" and I enter \"Damak\" and I enter \"08/24/2000\" and I enter \"9817091757\" and I enter \"Sujan Odari\" and I enter \"Damak\" and I enter \"9800987689\" and I enter \"Cat\" and I enter \"Student\" and I enter \"sujan1234\" and I enter \"sujan098\"",
             "result": {
               "status": "passed",
-              "duration": 1200301368
+              "duration": 1446046400
             },
             "line": 9,
             "match": {
-              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/step-definitions/registration-steps.js:8"
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\step-definitions\\registration-steps.js:8"
             }
           },
           {
@@ -40,11 +122,11 @@
             "name": "I should see \"The date field is required.\"",
             "result": {
               "status": "passed",
-              "duration": 278902173
+              "duration": 226332400
             },
             "line": 10,
             "match": {
-              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/step-definitions/registration-steps.js:18"
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\step-definitions\\registration-steps.js:18"
             }
           },
           {
@@ -52,11 +134,11 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 821535312
+              "duration": 1109789800
             },
             "hidden": true,
             "match": {
-              "location": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/runtime/world.js:250"
+              "location": "C:\\Users\\baxan\\Desktop\\React\\agile\\Panchasil-Management-System-Frontend\\test\\runtime\\world.js:250"
             }
           }
         ],
@@ -79,6 +161,6 @@
         "line": 1
       }
     ],
-    "uri": "/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/features/registration.feature"
+    "uri": "C:/Users/baxan/Desktop/React/agile/Panchasil-Management-System-Frontend/test/features/registration.feature"
   }
 ]
