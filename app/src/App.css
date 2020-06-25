@@ -1,0 +1,39 @@
+#body{
+  background-color: #EAE8E7
+}
+.school{
+  color: #D2691E;
+  font-size: 25px;
+  margin-top: 20px;
+}
+.register{
+  color: rgba(0,0,0,.9);
+}
+.fixed {
+   padding: 40px;
+   background-color:#9b9b9b;
+   margin-top: 100px;
+   margin-block-end: 20px;
+  -webkit-box-shadow: 2px 3px 18px 9px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 2px 3px 18px 9px rgba(0, 0, 0, 1);
+  box-shadow: 2px 3px 18px 9px rgba(0, 0, 0, 1);
+
+}
+
+.table-fixed{
+  padding: 40px;
+  margin-top: 10px;
+  background-color: #c2d0dc;
+  margin-block-end: 20px;
+}
+.forget{
+  font-size: 20px;
+  padding-left: 108px;
+}
+.button{
+  border-radius: 30px,
+  
+}
+.labelColor{
+  color:red;
+}
