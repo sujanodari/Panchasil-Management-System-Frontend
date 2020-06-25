@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
+    <testsuite name="login-in-panchasil;login-for-registered-and-approved-user" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/baxan/Desktop/React/agile/Panchasil-Management-System-Frontend/test/features/login.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am on the Panchasil Login page" classname="login-in-panchasil;login-for-registered-and-approved-user" time="8.8855499">
+        </testcase>
+        <testcase name="When I enter &quot;baxanacharya@gmail.com&quot; and I enter &quot;baxan1234&quot; and I click login" classname="login-in-panchasil;login-for-registered-and-approved-user" time="0.7851048">
+        </testcase>
+        <testcase name="Then I should see &quot;Welcome&quot; in the results" classname="login-in-panchasil;login-for-registered-and-approved-user" time="0.038769001">
+        </testcase>
+    </testsuite>
     <testsuite name="register-in-panchasil;user-registeration-vaidation-test" tests="3" failures="0" skipped="0">
         <properties>
             <property name="@search" value="true">
             </property>
-            <property name="URI" value="/home/sujan/Dropbox/Dissertation/AGILE/School/schoolreg/Panchasil-Management-System-Frontend/test/features/registration.feature">
+            <property name="URI" value="C:/Users/baxan/Desktop/React/agile/Panchasil-Management-System-Frontend/test/features/registration.feature">
             </property>
         </properties>
-        <testcase name="Given I am on the Panchasil Registration page" classname="register-in-panchasil;user-registeration-vaidation-test" time="7.043924157">
+        <testcase name="Given I am on the Panchasil Registration page" classname="register-in-panchasil;user-registeration-vaidation-test" time="4.709351199">
         </testcase>
-        <testcase name="When I enter &quot;odarisujan@gmail.com&quot; and I enter &quot;Sujan Odari&quot; and I enter &quot;Male&quot; and I enter &quot;Damak&quot; and I enter &quot;08/24/2000&quot; and I enter &quot;9817091757&quot; and I enter &quot;Sujan Odari&quot; and I enter &quot;Damak&quot; and I enter &quot;9800987689&quot; and I enter &quot;Cat&quot; and I enter &quot;Student&quot; and I enter &quot;sujan1234&quot; and I enter &quot;sujan098&quot;" classname="register-in-panchasil;user-registeration-vaidation-test" time="1.200301368">
+        <testcase name="When I enter &quot;odarisujan@gmail.com&quot; and I enter &quot;Sujan Odari&quot; and I enter &quot;Male&quot; and I enter &quot;Damak&quot; and I enter &quot;08/24/2000&quot; and I enter &quot;9817091757&quot; and I enter &quot;Sujan Odari&quot; and I enter &quot;Damak&quot; and I enter &quot;9800987689&quot; and I enter &quot;Cat&quot; and I enter &quot;Student&quot; and I enter &quot;sujan1234&quot; and I enter &quot;sujan098&quot;" classname="register-in-panchasil;user-registeration-vaidation-test" time="1.4460464">
         </testcase>
-        <testcase name="Then I should see &quot;The date field is required.&quot;" classname="register-in-panchasil;user-registeration-vaidation-test" time="0.278902173">
+        <testcase name="Then I should see &quot;The date field is required.&quot;" classname="register-in-panchasil;user-registeration-vaidation-test" time="0.2263324">
         </testcase>
     </testsuite>
 </testsuites>
