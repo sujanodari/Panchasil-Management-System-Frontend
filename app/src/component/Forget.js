@@ -25,7 +25,6 @@ class Forget extends Component{
     this.form.useRules({
       email: "required|email",
       password: "required|min:6",
-      cPassword: "required|min:6",
       securityAnswer:   "required"
     });
     }
@@ -72,8 +71,7 @@ class Forget extends Component{
             .then((response)=>{
                 if(response.data.status===201){
                     this.setState({status:true})
-                }
-             
+                }    
             })
             .catch(err=>{
                 console.log(err.response)
@@ -137,17 +135,18 @@ return(
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Control type="password" placeholder="New Password" name="password"  value={this.state.password} onChange={this.handleChange}   onBlur={this.form.handleBlurEvent} />
-                            {this.state.errors.answer ? <label className="labelColor" name="errPassword">{this.state.errors.answer}</label>
+                            {this.state.errors.password ? <label className="labelColor" name="errPassword">{this.state.errors.password}</label>
                          : null}
                         </Form.Group>
-                        {/* <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Conform New Password" name="cPassword" value={this.state.cPassword} onChange={this.handleChange}   onBlur={this.form.handleBlurEvent} />
-                            {this.state.errors.cPassword ? <label className="labelColor">{this.state.errors.cPassword}</label>
-                         : null}
-                        </Form.Group> */}
-                        <Button name="forget" className=" button" variant="primary" type="submit" onClick={this.forget}>
+                        {
+                          this.state.errors.email || this.state.errors.securityAnswer || this.state.errors.password?
+                          null
+                          :
+                          <Button name="forget" className=" button btn-block" variant="primary" type="submit" onClick={this.forget}>
                            Change Password
                         </Button>
+                        }
+                        
                         <Form.Group controlId="formBasicText">
                             <Form.Text className="forget">Login: <a href="/">Click Here</a></Form.Text>
                         </Form.Group>

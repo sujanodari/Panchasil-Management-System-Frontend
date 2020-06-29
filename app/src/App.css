@@ -37,3 +37,11 @@
 .labelColor{
   color:red;
 }
+
+.fix-image{
+  height: 221px;
+}
+
+.fix-news{
+  margin-top: 25px;
+}

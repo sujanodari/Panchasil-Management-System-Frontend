@@ -5,6 +5,7 @@ import LoginNav from './NavBar/LoginNav';
 import Validation from "react-form-input-validation";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import News from './News';
 import axois from 'axios'
 class Login extends Component{
 
@@ -17,7 +18,8 @@ this.state=({
     Verror: false,
     Lstatus:'',
     logged:false,
-    type:''
+    type:'',
+    news:[]
 
 })
 this.form = new Validation(this);
@@ -27,12 +29,22 @@ this.form.useRules({
 });
 }
 
+componentDidMount(){
+  //for getting news 
+  axois.get('http://localhost:3012/api/v1/news', this.state.config)
+  .then((response=>{
+    console.log(response.data)
+    this.setState({
+        news:response.data
+    })
+  }))
+}
+
 handleChange = e => {
 this.setState({
 
     [e.target.name]:e.target.value
 })
-    console.log(e.target.value);
 } 
 
 login= (e) => {
@@ -66,12 +78,16 @@ login= (e) => {
           this.setState({email:'',password:'', logged:true, Lstatus:'', type:response.data.type})
         })
         .catch(err=>{
-            console.log(err.response)
           if(err.response.status===401){
             this.setState({
                 Lstatus:'Not found',logged:false
             })
             }
+            if(err.response.status===402){
+              this.setState({
+                  Lstatus:'Verify',logged:false
+              })
+              }
             else if(err.response.status===403){
               this.setState({
                   Lstatus:'Password',logged:false
@@ -107,7 +123,7 @@ return(
         <div>
             <div className="container fixed">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                     <h1 align="center">Login</h1>
                     {
                                     this.state.Verror===true?
@@ -128,6 +144,15 @@ return(
               </p> 
                       :null
                 } 
+                {
+                  (this.state.Lstatus ==='Verify')?
+                  <p className='labelColor'>
+                 User not verified!!!
+              </p> 
+                      :null
+                } 
+
+
                     <Form>
                         
                         <Form.Group controlId="formBasicEmail">
@@ -156,13 +181,13 @@ return(
                         </Form>
                     </div>
 
-                    <div className="col-md-6">
-                       
-                    </div>
+                    
 
                 </div>
             </div>
-         
+            <div className="container"> 
+                   <News news={this.state.news}/>
+        </div>
         
         </div>
     </div>

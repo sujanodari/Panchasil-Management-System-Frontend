@@ -1,8 +1,39 @@
 import React, {Component} from 'react'; 
-//import { Redirect } from 'react-router-dom';
+import Nav from '../../NavBar/StudentNav'
+import axois from 'axios'
+import Notice from '../../Notice';
 
 class Studentdashboard extends Component{
+       constructor(props){
+              super(props)
+              this.state={
+                fullname:'',
+                config: {
+                  headers: { 'Authorization': ` ${localStorage.getItem('myToken')}` }
+              },
+              notices:[],
+              
+              }
+            }
 
+            componentDidMount(){
+              //for getting username 
+              axois.get('http://localhost:3012/api/v1/decode', this.state.config)
+              .then((response=>{
+                this.setState({
+                    fullname:response.data.fullName
+                })
+              }))
+
+                 //for getting notice 
+        axois.get('http://localhost:3012/api/v1/notice', this.state.config)
+        .then((response=>{
+          this.setState({
+              notices:response.data
+          })
+        }))
+
+            }
 
 render(){
  
@@ -10,7 +41,13 @@ render(){
 return(
 
        <div >
-        <label id="welcome"> Welcome</label> student       
+              <Nav/>
+        <p align="center"><label id="welcome"> Welcome</label> {this.state.fullname} </p> 
+        {
+          this.state.notices.length===0?null:
+          <Notice notices={this.state.notices}/> 
+        }    
+       
          </div>
 
 )}
