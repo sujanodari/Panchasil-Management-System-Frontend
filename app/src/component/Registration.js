@@ -123,12 +123,7 @@ class Registration extends Component{
                citizenshipNo:'',parentAddress:'',parentContact:'',parentName:'',gender:'',userType:'',securityAnswer:''})
             }})
             .catch(err=>{
-              if(err.response.status===400){
-                this.setState({
-                    Lstatus:'Not registered'
-                })
-                }
-                else if(err.response.status===409){
+                 if(err.response.status===403){
                   this.setState({
                       Lstatus:'Email already'
                   })
@@ -150,26 +145,9 @@ return(
                 <div className="row">
                     <div className="col-md-12">
                     <Form>
-                        <h1 align="center">Signup</h1>
-                        <div className=" container">
-                            <div className="row">
-                                <div className="col-md-6">
-
-                                {
+                                 {
                                     this.state.Verror===true?
                                     <label className='labelColor'>Validation error</label>
-                                    :null
-                                }
-                                {
-                                    this.state.pmatch===false?
-                                    <label className='labelColor'>Password and Confirm Password did not match !!!</label>
-                                    :null
-                                }
-                                 {
-                                (this.state.Lstatus ==='Not registered')?
-                                <label className='labelColor'>
-                                User can not be registered !!!
-                            </label> 
                                     :null
                                 }  
                                 {
@@ -179,6 +157,12 @@ return(
                             </label> 
                                     :null
                                 } 
+                        <h1 align="center">Signup</h1>
+                        <div className=" container">
+                            <div className="row">
+                                <div className="col-md-6">
+
+                               
                                 <Form.Group controlId="formBasicEmail">
                             <Form.Control type="email" placeholder="Enter email" name="email" value={this.state.email} onChange={this.handleChange}   onBlur={this.form.handleBlurEvent} />
                                  {this.state.errors.email ? <label className="labelColor" name="errEmail">{this.state.errors.email}</label>
