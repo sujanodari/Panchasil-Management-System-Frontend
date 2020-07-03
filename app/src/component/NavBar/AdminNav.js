@@ -23,6 +23,12 @@ return(
                                 <NavDropdown.Item href="/notice/add"><i className="fa fa-plus" aria-hidden="true"></i><label className="admin">Add Notice</label>  </NavDropdown.Item>
                                 <NavDropdown.Item href="/notice/view"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Notice</label></NavDropdown.Item>
                             </NavDropdown>
+                            <NavDropdown className="admin" title="Subject"  id="collasible-nav-dropdown2">
+                                <NavDropdown.Item href="/subject/add"><i className="fa fa-plus" aria-hidden="true"></i><label className="admin">Add Subject</label>  </NavDropdown.Item>
+                                <NavDropdown.Item href="/subject/view"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Subject</label></NavDropdown.Item>
+                                <NavDropdown.Item href="/viewSubject"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Subject For class</label></NavDropdown.Item>
+                                
+                            </NavDropdown>
                             </Nav>
                             <Nav>
                             <Nav.Link href="#deets"><i className="fa fa-user" aria-hidden="true"></i> <label className="admin">Profile</label> </Nav.Link>
