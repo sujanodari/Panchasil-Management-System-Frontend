@@ -33,7 +33,6 @@ componentDidMount(){
   //for getting news 
   axois.get('http://localhost:3012/api/v1/news', this.state.config)
   .then((response=>{
-    console.log(response.data)
     this.setState({
         news:response.data
     })

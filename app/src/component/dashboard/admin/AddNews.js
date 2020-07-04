@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import bsCustomFileInput from 'bs-custom-file-input';
 import Validation from "react-form-input-validation";
 import axios from 'axios'
-
+import { Redirect } from 'react-router-dom';
 class AddNews extends Component{
 
     constructor(props){
@@ -104,6 +104,18 @@ class AddNews extends Component{
 
     }
     render(){
+
+        if (this.state.success===true) {
+            return (
+              <Redirect
+                to={{
+                  pathname: "/news/view",
+                  state: "News added"
+                }}
+              />
+            );
+          }
+
         return(
             <>
             <Nav/>
@@ -111,8 +123,8 @@ class AddNews extends Component{
             <div className="container fixed">
                 <h5 align="center" >Publish News</h5>
             <Form>
-            {this.state.success===true ? <label className="labelColor" name="errEmail">News added</label>
-                     : null}
+            {/* {this.state.success===true ? <label className="labelColor" name="errEmail">News added</label>
+                     : null} */}
 
             {this.state.imageSuccess===true ? <label className="labelColor" name="errEmail">News Image added</label>
                      : null}         

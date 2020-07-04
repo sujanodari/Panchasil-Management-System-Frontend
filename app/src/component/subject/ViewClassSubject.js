@@ -98,10 +98,14 @@ render(){
                      : null}
                      {this.state.faliure===true ? <label className="labelColor" name="errEmail">Subjet for Class cannot be delete</label>
                      : null}
-                        <Table striped bordered hover variant="dark">
+
+                     {
+                       this.state.subjectsClass.length===0?
+                       <p align="center" className="labelColor">No subjects assigned for class</p>:
+                       <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
-                            <th>#</th>
+                            <th>Id</th>
                             <th>Class</th>
                             <th>Subject</th>
                             <th></th>
@@ -138,6 +142,8 @@ render(){
                              )} 
                         </tbody>
 </Table>
+                     }
+                        
                 </div>
 
            </>

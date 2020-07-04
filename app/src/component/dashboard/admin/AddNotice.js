@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import bsCustomFileInput from 'bs-custom-file-input';
 import Validation from "react-form-input-validation";
 import axios from 'axios'
-
+import { Redirect } from 'react-router-dom';
 class AddNotice extends Component{
 
     constructor(props){
@@ -103,6 +103,17 @@ class AddNotice extends Component{
 
     }
     render(){
+        if (this.state.success===true) {
+            return (
+              <Redirect
+                to={{
+                  pathname: "/notice/view",
+                  state: "Notice added"
+                }}
+              />
+            );
+          }
+
         return(
             <>
             <Nav/>

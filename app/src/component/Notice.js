@@ -16,7 +16,7 @@ class Notice extends Component {
       <>
         <div className="container">
           <p align="center">
-            <b>Notice</b>
+    <b>No of notice: {notices.length}</b>
           </p>
           <hr />
 
@@ -27,7 +27,7 @@ class Notice extends Component {
               
               {
                    notices.map((notices) =>
-                   <div  className="col-md-4 fix-news">
+                   <div  className="col-md-4 fix-news" key={notices.noticeId}>
                    <Card>
                        {
                            notices.image==null

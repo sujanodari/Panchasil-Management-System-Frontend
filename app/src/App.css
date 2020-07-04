@@ -20,6 +20,11 @@
 
 }
 
+.size {
+  max-width: 100%;
+  height: auto;
+}
+
 .table-fixed{
   padding: 40px;
   margin-top: 10px;

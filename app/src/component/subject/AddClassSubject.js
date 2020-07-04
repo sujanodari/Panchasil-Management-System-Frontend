@@ -44,7 +44,7 @@ componentDidMount(){
       })
     }))
 
-    this.state.subjects.maps((subjects) =>
+    this.state.subjects.map((subjects) =>
     {if(subjects.subId === this.state.subId){
      this.state.subjectName=subjects.subjectName
     }} 
@@ -86,7 +86,7 @@ addSubjectClass (id) {
 
 render(){
     if (this.state.success === true) {
-        return <Redirect to='/subject/view' />
+        return <Redirect to='/viewSubject' />
     }
     return(
         <div>

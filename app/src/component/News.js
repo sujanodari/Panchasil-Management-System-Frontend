@@ -16,7 +16,7 @@ class News extends Component {
       <>
         <div className="container">
           <p align="center">
-            <b>News</b>
+            <b>No of news: {news.length}</b>
           </p>
           <hr />
 
