@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-//import NavBar from "../NavBar/AdminNav";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-//import axois from 'axios'
 class Approve extends Component {
   constructor(props) {
     super(props)
@@ -21,7 +19,7 @@ class Approve extends Component {
     return (
       <>
         <div className="container table-fixed">
-          <h3 align="center">Approve User Registration</h3>
+          <h3 align="center">No of Unapproved users: {users.length}</h3>
           <Table responsive striped  bordered hover size="sm" variant="dark" className="admin">
             <thead>
               <tr>

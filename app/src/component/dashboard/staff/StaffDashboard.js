@@ -1,6 +1,7 @@
 import React, {Component} from 'react'; 
 import Nav from '../../NavBar/StaffNav'
 import axois from 'axios'
+import Notice from '../../Notice';
 class StaffDashboard extends Component{
 
   constructor(props){
@@ -9,7 +10,8 @@ class StaffDashboard extends Component{
       fullname:'',
       config: {
         headers: { 'Authorization': ` ${localStorage.getItem('myToken')}` }
-    }
+    },
+    notices:[],
     }
   }
 
@@ -22,6 +24,14 @@ class StaffDashboard extends Component{
           fullname:response.data.fullName
       })
     }))
+
+              //for getting notice 
+              axois.get('http://localhost:3012/api/v1/notice', this.state.config)
+              .then((response=>{
+                this.setState({
+                    notices:response.data
+                })
+              }))
   }
 
 render(){
@@ -31,8 +41,11 @@ return(
 
   <div >
      <Nav/>  
-  <p align="center"><label id="welcome"> Welcome</label> :{this.state.fullname} </p>
-     
+  <p align="center"><label id="welcome"> Welcome</label> :<b>{this.state.fullname}</b> </p>
+  {
+          this.state.notices.length===0?null:
+          <Notice notices={this.state.notices}/> 
+        }   
    </div>
 
 )}

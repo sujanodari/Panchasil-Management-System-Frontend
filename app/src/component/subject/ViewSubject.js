@@ -4,10 +4,7 @@ import Subject from './Subject';
 
 class ViewSubject extends Component{
 
-    constructor(props){
-        super(props)
-       
-    }
+   
 
   
 

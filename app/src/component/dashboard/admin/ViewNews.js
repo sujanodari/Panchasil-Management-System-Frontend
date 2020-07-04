@@ -7,7 +7,10 @@ class ViewNews extends Component{
     constructor(props){
         super(props)
         this.state={
-            news:[]
+            news:[],
+            config: {
+                headers: { 'Authorization': ` ${localStorage.getItem('myToken')}` }
+            }
         }
     }
 
