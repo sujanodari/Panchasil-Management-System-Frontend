@@ -130,7 +130,7 @@ return(
             <div className="container-fluid">
                 <div className="row">
 
-                <div className="col-md-6">
+                <div className="col-md-5">
                    <Card border="dark">
                     <Card.Header >Approval</Card.Header>
                     <Card.Body>
