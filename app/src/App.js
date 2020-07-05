@@ -31,6 +31,7 @@ import AddSubject from './component/subject/AddSubject'
 import ViewSubject from './component/subject/ViewSubject'
 import AddClassSubject from './component/subject/AddClassSubject'
 import ViewClassSubject from './component/subject/ViewClassSubject'
+import UserAction from './component/dashboard/admin/UserAction';
 
 
 
@@ -66,7 +67,7 @@ function App() {
     <PrivateAdmin exact path ="/viewSubject" component={ViewClassSubject}/>
     <PrivateAdmin exact path ="/enroll/:id" component={EnrollStudent}/>
     <PrivateAdmin exact path ="/admin/profile" component={AdminProfile}/>
-   
+    <PrivateAdmin exact path ="/userAction/:id" component={UserAction}/>
    
     
    </BrowserRouter> 
