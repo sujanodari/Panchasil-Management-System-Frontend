@@ -11,6 +11,9 @@ class AdminDashboard extends Component{
    constructor(props) {
       super(props)
       this.state = {
+        name: '',
+        email: '',
+        isSelected:'',
           users: [],
           allUsers:[],
           type:'',
@@ -64,16 +67,28 @@ class AdminDashboard extends Component{
       }))
 
         }else if(e.target.value==="Staff"){
-                //for getting all staff
+                //for getting all student
       axois.get('http://localhost:3012/api/v1/users/staff', this.state.config)
       .then((response=>{
+        console.log(response)
         this.setState({
             allUsers:response.data
         })
       }))
-        }
+    }else if(e.target.value==="Staff"){
+      //for getting all staff
+axois.get('http://localhost:3012/api/v1/users/staff', this.state.config)
+.then((response=>{
+this.setState({
+  allUsers:response.data
+})
+}))
+}
 
-    } 
+
+  }
+
+    
 
   //for approving  users
   handleApprove = (users) => {
@@ -109,7 +124,78 @@ class AdminDashboard extends Component{
         
     })
   }
-  
+  searchChange = e => {
+    if(e.target.value==="fullname"){
+       this.setState({
+         isSelected: "fullname"
+         
+ 
+       })
+      }
+      if(e.target.value==="email"){
+        this.setState({
+          isSelected:"email"
+         
+        })
+    
+      }
+         }
+        
+    
+        searchByName= e=> {
+          this.setState ({
+            [e.target.name]:e.target.value  
+            })
+                 axois.get("http://localhost:3012/api/v1/search",this.state.config,this.state)
+          .then(response=>{
+            
+            var x = [];
+             
+            response.data.forEach(element => {
+              this.state.name=this.state.name.toLowerCase()
+
+              if(element.fullName.toLowerCase().includes(this.state.name)){
+                x.push(element);
+              }
+            });
+    
+            this.setState({
+              allUsers:x, users:x
+          })
+            console.log(x);
+          })
+          .catch(err=>{
+            console.log(err.response);
+          })
+        }
+    
+//---------------------
+searchByEmail= e=> {
+  this.setState ({
+    [e.target.name]:e.target.value  
+    })
+         axois.get("http://localhost:3012/api/v1/search",this.state.config,this.state)
+  .then(response=>{
+    
+    var x = [];
+     
+    response.data.forEach(element => {
+      this.state.email=this.state.email.toLowerCase()
+
+      if(element.email.toLowerCase().includes(this.state.email)){
+        x.push(element);
+      }
+    });
+
+    this.setState({
+      allUsers:x, users:x
+  })
+    console.log(x);
+  })
+  .catch(err=>{
+    console.log(err.response);
+  })
+}
 
 render(){   
 return(
@@ -153,6 +239,41 @@ return(
 
                       <Card border="primary">
                         <Card.Header>
+                        <div className="container">   
+                          <div className="row">
+                          <div className="col-md-6" > 
+                         <Form.Group controlId="search">
+                                <Form.Control as="select" name= "search"  onChange ={this.searchChange} >
+                                    <option>Filter By</option>
+                                    <option>fullname</option>
+                                    <option>email</option>
+                                </Form.Control>
+                                </Form.Group>
+
+                         </div>
+                         <div className="col-md-6" >
+                         {this.state.isSelected==="fullname"?
+                         <Form.Group controlId="search">
+                         <Form.Control placeholder = "searchByName" name="name" type="text"  value ={this.state.name} onChange ={this.searchByName } />                  
+                     </Form.Group>
+                         :null                                        
+                        }  
+
+                    {this.state.isSelected==="email"?
+                         <Form.Group controlId="search">
+                         <Form.Control placeholder = "searchByEmail" name="email" type="text"  value ={this.state.email} onChange ={this.searchByEmail } />                  
+                     </Form.Group>
+                         :null                                        
+                        }  
+
+
+                            </div>   
+
+                          </div>
+
+
+                         
+                        </div>
                         <Form.Group controlId="type">
                                 <Form.Control as="select" name= "type" value={this.state.type} onChange={this.handleChange}>
                                     <option>Choose User Type</option>
