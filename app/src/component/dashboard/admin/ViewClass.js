@@ -3,6 +3,7 @@ import axois from 'axios';
 import Nav from '../../NavBar/AdminNav'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 class ViewClass extends Component{
     constructor(props){
         super(props)
@@ -36,7 +37,25 @@ class ViewClass extends Component{
 
         }))
     }
+    
+    
 
+    handleDeleteRoutine= (id) => {
+    axois.delete(
+    "http://localhost:3012/api/v1/routine/"+
+    id, this.state.config
+    
+            )
+              .then(function (response) {
+    console.log(response.data)
+    window.location.reload();
+              })
+              .catch(function (err) {
+    console.log(err)
+              })
+          };
+    
+    
     render(){
         return(
             <>
@@ -71,11 +90,14 @@ class ViewClass extends Component{
                  </a>
                 
                     <br/>
-                     <Button className="btn-danger btn btn-block" >Delete Routine</Button>
+                     <Button className="btn-danger btn btn-block" onClick={() =>
+                        this.handleDelete(allClass.classId)
+                      }  >Delete Routine</Button>
                      </>
                         :
                         <p>
-                            <Button className="btn-danger btn btn-block" >Add Routine</Button>
+                            <Link to={"/addRoutine/" + allClass.classId}>
+                            <Button className="btn-danger btn btn-block" >Add Routine</Button></Link>
                         </p>
                     }
                     
