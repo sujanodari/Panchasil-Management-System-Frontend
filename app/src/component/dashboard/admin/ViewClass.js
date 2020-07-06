@@ -62,7 +62,27 @@ class ViewClass extends Component{
                     <Card.Title>Class: {allClass.class}</Card.Title>
                             <Card.Text>
                     <p>Section: {allClass.section}</p>
+                    
+                    {
+                        allClass.routine?
+                        <>
+                        <a href={`http://localhost:3012/images/${allClass.routine}`}>
+                              <Card.Img variant="top" src={`http://localhost:3012/images/${allClass.routine}`}className="fix-image" alt="image not found" />
+                 </a>
+                
+                    <br/>
+                     <Button className="btn-danger btn btn-block" >Delete Routine</Button>
+                     </>
+                        :
+                        <p>
+                            <Button className="btn-danger btn btn-block" >Add Routine</Button>
+                        </p>
+                    }
+                    
+                   
+                    <br/>
                     <Button className="btn-danger btn btn-block" onClick={() =>{if(window.confirm('Are you sure??'))this.handleDelete(allClass.classId)} }>Delete class</Button>
+                    
                             </Card.Text>
                             </Card.Body>
                         </Card>
