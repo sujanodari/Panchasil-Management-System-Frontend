@@ -77,15 +77,15 @@ class Users extends Component {
                         href={`enroll/${allUsers.userId}`}
                         className="btn btn-success"
                       >
-                        {" "}
-                        Enroll Class{" "}
+                      
+                        Enroll 
                       </a>
                     ) : (
                       <a
-                        href={`enrollTeacher/${allUsers.userId}`}
+                        href={`enroll/${allUsers.userId}`}
                         className="btn btn-primary"
                       >
-                        Enroll Teacher
+                        Enroll 
                       </a>
                     )}
                   </td>
