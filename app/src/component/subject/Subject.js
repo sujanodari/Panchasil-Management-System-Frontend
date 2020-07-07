@@ -17,7 +17,6 @@ class Subject extends Component {
             config: {
                 headers: { 'Authorization': ` ${localStorage.getItem('myToken')}` }
             },
-            success:false
           }
             this.form = new Validation(this);
             this.form.useRules({
