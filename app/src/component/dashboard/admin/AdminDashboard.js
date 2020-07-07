@@ -211,12 +211,9 @@ return(
             null
         }    
          </div>
-           
 
-            <div className="container-fluid">
-                <div className="row">
-
-                <div className="col-md-5">
+         <div className="container">
+         <div className="col-md-12">
                    <Card border="dark">
                     <Card.Header >Approval</Card.Header>
                     <Card.Body>
@@ -231,8 +228,12 @@ return(
                   </Card>
                    
                     </div>
-                    
-                    <div className="col-md-6">
+         </div>
+           
+<hr/>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
                       {
                         this.props.location.state?<label className="labelColor">{this.props.location.state}</label>:null
                       }

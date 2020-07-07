@@ -102,7 +102,7 @@ render(){
           <Redirect
             to={{
               pathname: "/show/enroll",
-              state: "Student enrolled"
+              state: "Enroll success"
             }}
           />
         );
@@ -112,7 +112,7 @@ render(){
           <Redirect
             to={{
               pathname: "/admin",
-              state: "Student already enrolled"
+              state: "Already enrolled"
             }}
           />
         );
@@ -144,7 +144,7 @@ render(){
            <>
            <AdminNav/>
            <div className="container fixed">
-               <p align="center">Enroll Student</p>
+               <p align="center">Enroll </p>
                {
                    this.state.Verror===true?<label className="labelColor">Validation error</label>:null
                }
