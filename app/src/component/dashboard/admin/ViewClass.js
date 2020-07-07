@@ -26,7 +26,7 @@ class ViewClass extends Component{
     }
 
     handleDelete(id){
-        axois.delete(`http://localhost:3012/api/v1/class/${id}`, this.state.config)
+        axois.delete(`http://localhost:3012/api/v1/routine/${id}`, this.state.config)
         .then((response=>{
             axois.get('http://localhost:3012/api/v1/class', this.state.config)
             .then((response=>{
