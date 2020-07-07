@@ -160,7 +160,7 @@ this.setState({
             });
     
             this.setState({
-              allUsers:x, users:x
+              allUsers:x
           })
             console.log(x);
           })
@@ -188,7 +188,7 @@ searchByEmail= e=> {
     });
 
     this.setState({
-      allUsers:x, users:x
+      allUsers:x
   })
     console.log(x);
   })
