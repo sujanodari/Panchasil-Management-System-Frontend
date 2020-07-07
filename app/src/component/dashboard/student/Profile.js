@@ -60,7 +60,8 @@ class Profile extends Component {
                                 classId: response.data.result.classId,
                                 section: response.data.result.section,
                                 class: response.data.result.class,
-                                year: response.data.year
+                                year: response.data.year,
+                                routine:response.data.result.routine
                             })
                             axois.get(`http://localhost:3012/api/v1/student/subject/${this.state.classId}`, this.state.config)
                                 .then(response => {
@@ -94,6 +95,7 @@ class Profile extends Component {
 
     }
     render() {
+        // console.log(this.state.routine)
 
         return (
             <>
@@ -170,7 +172,8 @@ class Profile extends Component {
                                             <p>Enroll Date: {this.state.year}</p>
 
                                             {
-                                                this.state.routine ? <><p>Routine:</p>   <a href={`http://localhost:3012/images/${this.state.routine}`}>
+                                                this.state.routine ? <><p>Routine:</p> 
+                                                  <a href={`http://localhost:3012/images/${this.state.routine}`}>
                                                     <Card.Img variant="top" src={`http://localhost:3012/images/${this.state.routine}`} className="fix-image" alt="image not found" />
                                                 </a></> : <p>Routine Not found</p>
                                             }
