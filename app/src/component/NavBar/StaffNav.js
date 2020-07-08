@@ -15,6 +15,7 @@ return(
         <Navbar.Toggle />
         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
+                            <Nav.Link href="/staff/attendence"><i className="fa fa-calendar-o" aria-hidden="true"></i> <label className="admin">Attendence</label> </Nav.Link>
                             {/* <NavDropdown className="admin" title="Notice"  id="collasible-nav-dropdown1">
                                 <NavDropdown.Item href="notice/view/staff"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Notice</label></NavDropdown.Item>
                             </NavDropdown> */}

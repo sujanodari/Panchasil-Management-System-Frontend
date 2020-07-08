@@ -90,7 +90,7 @@ class ViewClass extends Component{
                 
                     <br/>
                      <Button className="btn-danger btn btn-block" onClick={() =>
-                        this.handleDelete(allClass.classId)
+                        this.handleDeleteRoutine(allClass.classId)
                       }  >Delete Routine</Button>
                      </>
                         :

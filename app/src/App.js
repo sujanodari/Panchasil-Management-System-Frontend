@@ -15,6 +15,9 @@ import StaffDashboard from './component/dashboard/staff/StaffDashboard';
 import ViewNoticeStaff from './component/dashboard/staff/ViewNotice'
 import PrivateStaff from './component/private/PrivateStaff'
 import StaffProfile from './component/dashboard/staff/Profile'
+import StaffAttendence from './component/dashboard/staff/Attendence'
+import AddAttendence from './component/dashboard/staff/AddAttendence'
+import SubAttendence from './component/dashboard/staff/SubAttendence'
 
 import AminDashboard from './component/dashboard/admin/AdminDashboard';
 import ViewNews from './component/dashboard/admin/ViewNews'
@@ -54,6 +57,9 @@ function App() {
     <PrivateStaff exact path ="/staff" component={StaffDashboard}/>
     <PrivateStaff exact path ="/notice/view/staff" component={ViewNoticeStaff}/>
     <PrivateStaff exact path="/staff/profile" component={StaffProfile}/>
+    <PrivateStaff exact path="/staff/attendence" component={StaffAttendence}/>
+    <PrivateStaff exact path="/attendence/add/:id" component={AddAttendence}/>
+    <PrivateStaff exact path="/attendence/sub/:id" component={SubAttendence}/>
 
     <PrivateAdmin exact path ="/admin" component={AminDashboard}/>
     <PrivateAdmin exact path ="/news/add" component={AddNews}/>  
