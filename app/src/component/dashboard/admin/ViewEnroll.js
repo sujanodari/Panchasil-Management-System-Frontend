@@ -27,7 +27,6 @@ class ViewEnroll extends Component {
     axios
       .get("http://localhost:3012/api/v1/enroll", this.state.config)
       .then((response) => {
-        // this.props.location.state=null
         this.setState({
           enrolls: response.data,
         });

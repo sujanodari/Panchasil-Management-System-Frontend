@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Nav from '../../NavBar/StudentNav'
+import Nav from '../../NavBar/StaffNav'
 import axois from 'axios'
 import Card from 'react-bootstrap/Card'
 import NoImage from "./noimage.jpg";
