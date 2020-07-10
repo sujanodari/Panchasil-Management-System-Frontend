@@ -13,6 +13,7 @@ class Attendence extends Component{
            email:'',
            name:'',
            attendence:'',
+           notFound:false,
           config: {
             headers: { 'Authorization': ` ${localStorage.getItem('myToken')}` }
         },
@@ -39,7 +40,6 @@ class Attendence extends Component{
         .then((response=>{
           axois.get(`http://localhost:3012/api/v1/class/student/${response.data.userId}`, this.state.config)
           .then(response=>{
-            //  console.log(response.data.result.classId)
             axois.get(`http://localhost:3012/api/v1/enroll/class/${response.data.result.classId}`, this.state.config)
             .then(response=>{
               // console.log(response.data)
@@ -47,15 +47,16 @@ class Attendence extends Component{
                 enrolls:response.data
               })
             })
+          }).catch(err=>{
+            if(err.response.status===404){
+             this.setState({
+               notFound:true
+             })
+            }
           })
         }))
 
     }
-
-    handleAdd=(id)=>{
-      console.log(id)
-    }
-
 
     render(){
         return(
@@ -65,11 +66,15 @@ class Attendence extends Component{
             <hr/>
             <div className="container">
 
-        <h4 align="center">No of Students: {this.state.users.length}</h4>
+        
         {
         this.props.location.state?<p align="center"><label className="labelColor">{this.props.location.state}</label></p>:null
         }
-            <Table
+
+        {
+          this.state.notFound===true?<p align="center"><label className="labelColor">Class is not assigned</label></p>:
+        <>  <h4 align="center">No of Students: {this.state.users.length}</h4>
+          <Table
               responsive
               striped
               bordered
@@ -88,28 +93,23 @@ class Attendence extends Component{
                 </tr>
               </thead>
               <tbody>
-                {this.state.enrolls.map((user) => (
-                  <tr key={user.enrollId} 
-                  value={this.state.enroll_id=user.enrollId,
-                   this.state.user_id=user.user_id,
-                   this.state.class_id=user.class_id} >
-                   
+                {this.state.users.map((user) => (
+                  <tr key={user.userId} 
+                  value={this.state.user_id=user.userId} >
+                    
                     {
-                      this.state.users.map((users)=>
+                   
+                      this.state.enrolls.map((enrolls)=>
                       {
-                        if(users.userId===this.state.user_id){
-                            this.state.student_name=users.fullName
-                            this.state.email=users.email
-                            this.state.attendence=users.attendance
+                        if(enrolls.user_id===this.state.user_id){
+                            this.state.student_name=user.fullName
+                            this.state.email=user.email
+                            this.state.attendence=user.attendance
                            
                         }
                       }
                       )
                     }
-
-                    {
-                        this.state.student_name?
-                         <>
                      <td>
                      {this.state.user_id}
                      
@@ -149,15 +149,14 @@ class Attendence extends Component{
                          aria-hidden="true"
                         ></i>
                      </a>
-                   </td>
-                   </>
-                        :null
-                    }
-                   
+                   </td>                   
                   </tr>
                 ))}
               </tbody>
             </Table>
+            </>
+        }
+            
             </div>
             </>
 
