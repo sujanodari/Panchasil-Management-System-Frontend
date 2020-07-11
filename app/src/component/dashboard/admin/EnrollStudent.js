@@ -21,6 +21,7 @@ class EnrollStudent extends Component{
             cnotfound:false,
             unotfound:false,
             cerror:false,
+            classes:[],
             config: {
                 headers: { 'Authorization': ` ${localStorage.getItem('myToken')}` }
             }, 
@@ -31,7 +32,15 @@ class EnrollStudent extends Component{
     });
 }
 
-
+componentDidMount(){
+  axois.get(`http://localhost:3012/api/v1/class`, this.state.config)
+  .then(response=>{
+    console.log(response.data)
+    this.setState({
+      classes:response.data
+    })
+  })
+}
 
 
 handleChange = e => {
@@ -157,19 +166,12 @@ render(){
                 <Form.Group controlId="class">
                                 <Form.Control as="select" name= "class" value={this.state.class} onChange={this.handleChange}>
                                     <option>Choose class</option>
-                                    <option>PG</option>
-                                    <option>Nursery</option>
-                                    <option>KG</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
+                               {
+                                 this.state.classes.map((classes) => (
+                                 <option>{classes.class}</option>
+                                 ))}
+
+                                
                                 </Form.Control>
                                 </Form.Group>
 

@@ -3,6 +3,7 @@ import '../../App.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import Logo from "./logo.png";
 class AdminNav extends Component{
 
 
@@ -13,7 +14,12 @@ return(
             <div className="row">
                 <div className="col-md-12">
                     <Navbar    bg="light dark">
-                        <Navbar.Brand href="/admin"><label className="school" >Panchashil School</label></Navbar.Brand>
+                        <Navbar.Brand href="/admin"><img
+                                                src={Logo}
+                                                alt="logo"
+                                                align="center"
+                                                className="img-fluid"
+                                            /></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="mr-auto">
