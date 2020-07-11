@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../../App.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
+import Logo from "./logo.png";
 // import NavDropdown from 'react-bootstrap/NavDropdown'
 class StaffNav extends Component{
 
@@ -11,7 +12,12 @@ render(){
 return(
         <><div className="container">
         <Navbar  bg="light dark">
-        <Navbar.Brand href="/staff"><label className="school" >Panchashil School</label></Navbar.Brand>
+        <Navbar.Brand href="/staff"><img
+                                                src={Logo}
+                                                alt="logo"
+                                                align="center"
+                                                className="img-fluid"
+                                            /></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">

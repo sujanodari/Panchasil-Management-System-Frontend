@@ -14,6 +14,7 @@ class ViewEnroll extends Component {
       class_id:'',
       email:'',
       class_name:'',
+      userType:"",
       section:'',
       student_name:'',
       classes:[],
@@ -90,6 +91,7 @@ class ViewEnroll extends Component {
                   <th>FullName</th>
                   <th>ClassName</th>
                   <th>Email</th>
+                  <th>UserType</th>
                   <th>Year</th>
                   <th>Delete</th>
                 </tr>
@@ -110,6 +112,7 @@ class ViewEnroll extends Component {
                         if(users.userId===this.state.user_id){
                             this.state.student_name=users.fullName
                             this.state.email=users.email
+                            this.state.userType=users.userType
                         }
                       }
                       ),
@@ -132,6 +135,9 @@ class ViewEnroll extends Component {
                     </td>
                     <td>
                       {this.state.email}
+                    </td>
+                    <td>
+                      {this.state.userType}
                     </td>
                     <td>
                       {user.year}
