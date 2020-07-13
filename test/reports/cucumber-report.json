@@ -1,50 +1,50 @@
 [
   {
-    "description": "  As a registered and approved staff\n  In order to add  attendence\n  I want to add  students attendence",
+    "description": "  As a admin <user-type>\n  In order to view fee in the application \n  I want to view fee",
     "elements": [
       {
-        "id": "add-attendence-of-students;add-attendence-of-students",
+        "id": "view-fee-of-class;view-fee",
         "keyword": "Scenario",
         "line": 7,
-        "name": "Add attendence of students",
+        "name": "View fee",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "name": "I am logged in staff user",
+            "name": "I am admin logged in",
             "result": {
               "status": "passed",
-              "duration": 5919908600
+              "duration": 7306321701
             },
             "line": 8,
             "match": {
-              "location": "folder\\bdd\\Panchasil-Management-System-Frontend\\test\\step-definitions\\attendence-steps.js:3"
+              "location": "folder\\bdd\\Panchasil-Management-System-Frontend\\test\\step-definitions\\fee-steps.js:3"
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "I am on attendence page and click add button",
+            "name": "I am on the  view fee page",
             "result": {
               "status": "passed",
-              "duration": 928262601
+              "duration": 950170100
             },
             "line": 9,
             "match": {
-              "location": "folder\\bdd\\Panchasil-Management-System-Frontend\\test\\step-definitions\\attendence-steps.js:7"
+              "location": "folder\\bdd\\Panchasil-Management-System-Frontend\\test\\step-definitions\\fee-steps.js:7"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "name": "I should see \"Attendence\" in the attendence page",
+            "name": "I should see the \"Tuition Fee: 1000\"",
             "result": {
               "status": "passed",
-              "duration": 168188000
+              "duration": 44646399
             },
             "line": 10,
             "match": {
-              "location": "folder\\bdd\\Panchasil-Management-System-Frontend\\test\\step-definitions\\attendence-steps.js:11"
+              "location": "folder\\bdd\\Panchasil-Management-System-Frontend\\test\\step-definitions\\fee-steps.js:10"
             }
           },
           {
@@ -52,7 +52,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 891757800
+              "duration": 1404633600
             },
             "hidden": true,
             "match": {
@@ -62,23 +62,23 @@
         ],
         "tags": [
           {
-            "name": "@attendence",
+            "name": "@search",
             "line": 1
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "add-attendence-of-students",
+    "id": "view-fee-of-class",
     "keyword": "Feature",
     "line": 2,
-    "name": "Add attendence of students",
+    "name": "View fee of class",
     "tags": [
       {
-        "name": "@attendence",
+        "name": "@search",
         "line": 1
       }
     ],
-    "uri": "C:/Users/baxan/Desktop/New folder/bdd/Panchasil-Management-System-Frontend/test/features/attendence.feature"
+    "uri": "C:/Users/baxan/Desktop/New folder/bdd/Panchasil-Management-System-Frontend/test/features/fee.feature"
   }
 ]
