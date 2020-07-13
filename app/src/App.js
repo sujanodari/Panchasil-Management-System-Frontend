@@ -15,9 +15,6 @@ import StaffDashboard from './component/dashboard/staff/StaffDashboard';
 import ViewNoticeStaff from './component/dashboard/staff/ViewNotice'
 import PrivateStaff from './component/private/PrivateStaff'
 import StaffProfile from './component/dashboard/staff/Profile'
-import StaffAttendence from './component/dashboard/staff/Attendence'
-import AddAttendence from './component/dashboard/staff/AddAttendence'
-import SubAttendence from './component/dashboard/staff/SubAttendence'
 
 import AminDashboard from './component/dashboard/admin/AdminDashboard';
 import ViewNews from './component/dashboard/admin/ViewNews'
@@ -35,7 +32,8 @@ import ViewSubject from './component/subject/ViewSubject'
 import AddClassSubject from './component/subject/AddClassSubject'
 import ViewClassSubject from './component/subject/ViewClassSubject'
 import AddRoutine from './component/dashboard/admin/AddRoutine'
-import UserAction from './component/dashboard/admin/UserAction';
+import UserAction from './component/dashboard/admin/UserAction'
+import Fees from './component/dashboard/admin/Fees' ;
 
 
 
@@ -57,9 +55,6 @@ function App() {
     <PrivateStaff exact path ="/staff" component={StaffDashboard}/>
     <PrivateStaff exact path ="/notice/view/staff" component={ViewNoticeStaff}/>
     <PrivateStaff exact path="/staff/profile" component={StaffProfile}/>
-    <PrivateStaff exact path="/staff/attendence" component={StaffAttendence}/>
-    <PrivateStaff exact path="/attendence/add/:id" component={AddAttendence}/>
-    <PrivateStaff exact path="/attendence/sub/:id" component={SubAttendence}/>
 
     <PrivateAdmin exact path ="/admin" component={AminDashboard}/>
     <PrivateAdmin exact path ="/news/add" component={AddNews}/>  
@@ -77,6 +72,7 @@ function App() {
     <PrivateAdmin exact path ="/admin/profile" component={AdminProfile}/>
     <PrivateAdmin exact path ="/userAction/:id" component={UserAction}/>
     <PrivateAdmin exact path ="/addRoutine/:id" component={AddRoutine}/>
+    <PrivateAdmin exact path ="/fees/:id" component={Fees}/>
    
     
    </BrowserRouter> 
