@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="add-attendence-of-students;add-attendence-of-students" tests="3" failures="0" skipped="0">
+    <testsuite name="view-fee-of-class;view-fee" tests="3" failures="0" skipped="0">
         <properties>
-            <property name="@attendence" value="true">
+            <property name="@search" value="true">
             </property>
-            <property name="URI" value="C:/Users/baxan/Desktop/New folder/bdd/Panchasil-Management-System-Frontend/test/features/attendence.feature">
+            <property name="URI" value="C:/Users/baxan/Desktop/New folder/bdd/Panchasil-Management-System-Frontend/test/features/fee.feature">
             </property>
         </properties>
-        <testcase name="Given I am logged in staff user" classname="add-attendence-of-students;add-attendence-of-students" time="5.9199086">
+        <testcase name="Given I am admin logged in" classname="view-fee-of-class;view-fee" time="7.306321701">
         </testcase>
-        <testcase name="When I am on attendence page and click add button" classname="add-attendence-of-students;add-attendence-of-students" time="0.928262601">
+        <testcase name="When I am on the  view fee page" classname="view-fee-of-class;view-fee" time="0.9501701">
         </testcase>
-        <testcase name="Then I should see &quot;Attendence&quot; in the attendence page" classname="add-attendence-of-students;add-attendence-of-students" time="0.168188">
+        <testcase name="Then I should see the &quot;Tuition Fee: 1000&quot;" classname="view-fee-of-class;view-fee" time="0.044646399">
         </testcase>
     </testsuite>
 </testsuites>
