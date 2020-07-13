@@ -59,6 +59,7 @@ class Users extends Component {
                 <th>Email</th>
                 <th>UserType</th>
                 <th>Parent Name</th>
+                <th>Salary</th>
                 <th>Enroll</th>
                 <th>Action</th>
               </tr>
@@ -71,6 +72,11 @@ class Users extends Component {
                   <td>{allUsers.email}</td>
                   <td>{allUsers.userType}</td>
                   <td>{allUsers.parentName}</td>
+                  {allUsers.userType === "Staff" ? (
+                  <td>{allUsers.amount}</td>
+                  ):(
+                    <td></td>
+                  )}
                   <td>
                     {allUsers.userType === "Student" ? (
                       <a

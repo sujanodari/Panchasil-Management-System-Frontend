@@ -61,12 +61,13 @@ class ViewClass extends Component{
             <Nav/>
 
             <div className="container">
+               
             <p align="center">
         <b>No of class: {this.state.allClass.length}</b> </p>
             <hr />
-            {/* {
+            { 
                         this.props.location.state?<label className="labelColor">{this.props.location.state}</label>:null
-                      } */}
+                      } 
             {
                 this.state.allClass.length===0?<div>No Classes Found</div>
                 :
@@ -80,6 +81,9 @@ class ViewClass extends Component{
                     <Card.Title>Class: {allClass.class}</Card.Title>
                             <Card.Text>
                     <p>Section: {allClass.section}</p>
+                    <p>Tuition Fee: {allClass.tuition}</p>
+                    <p>Extra Curriculum Fee: {allClass.eca}</p>
+                    <p>Transportation Fee: {allClass.trans}</p>
                     
                     {
                         allClass.routine?
@@ -90,7 +94,7 @@ class ViewClass extends Component{
                 
                     <br/>
                      <Button className="btn-danger btn btn-block" onClick={() =>
-                        this.handleDeleteRoutine(allClass.classId)
+                        this.handleDelete(allClass.classId)
                       }  >Delete Routine</Button>
                      </>
                         :
@@ -103,7 +107,10 @@ class ViewClass extends Component{
                    
                     <br/>
                     <Button className="btn-danger btn btn-block" onClick={() =>{if(window.confirm('Are you sure??'))this.handleDelete(allClass.classId)} }>Delete class</Button>
-                    
+                      <br/>
+
+                       <a href = {"/fees/" + allClass.classId} className = "btn btn-primary btn-block" >Add Fees</a>
+                       
                             </Card.Text>
                             </Card.Body>
                         </Card>

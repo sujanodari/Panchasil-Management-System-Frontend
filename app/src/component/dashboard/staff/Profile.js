@@ -137,6 +137,7 @@ class Profile extends Component {
                                                     <p>Contact No : <b>{this.state.user.contactNumber}</b></p>
                                                     <p>Email : <b>{this.state.user.email}</b></p>
                                                     <p>Gender : <b>{this.state.user.gender}</b></p>
+                                                    <p>Salary : <b>{this.state.user.amount}</b></p>
                                                 </div>
                                             </div>
                                         </div>
