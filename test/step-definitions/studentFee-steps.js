@@ -2,7 +2,7 @@ module.exports = function () {
 
     this.Given(/^I am logged in student$/, function () {
         helpers.loadPage(page.login.url);
-        return page.login.userInput("sujan@gmail.com", "123456");
+        return page.login.userInput("student@gmail.com", "123456");
         // load panchasil
 
     });
