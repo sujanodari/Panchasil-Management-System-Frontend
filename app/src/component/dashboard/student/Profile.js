@@ -12,6 +12,7 @@ class Profile extends Component {
             section: '',
             userId: '',
             user: {},
+            fee:{},
             subjectId: [],
             subject: [],
             classId: '',
@@ -26,6 +27,29 @@ class Profile extends Component {
 
     componentDidMount() {
 
+
+       
+        axois.get(`http://localhost:3012/api/v1/fee`,this.state.config)
+        .then(response=>{
+         
+         if (response) {
+            this.setState({
+                fee: response.data,
+            })
+         
+       
+        }
+        }).catch(err=>{
+            if (err) {
+                this.setState({
+                    fee: {},
+                })
+            }
+           }
+          
+        );
+
+       
 
         //getting subject
 
@@ -80,6 +104,8 @@ class Profile extends Component {
                                 })
                         }
 
+
+
                     }).catch(err => {
                         if (err.response.status === 404) {
                             this.setState({
@@ -90,10 +116,10 @@ class Profile extends Component {
                             })
                         }
                     })
-            }))
-
-
+            })) 
     }
+
+
     render() {
         // console.log(this.state.routine)
 
@@ -167,6 +193,7 @@ class Profile extends Component {
                                     <Card.Header>Class Details</Card.Header>
                                     <Card.Body>
                                         <Card.Title>Class: {this.state.class}</Card.Title>
+                        
                                         <Card.Text>
                                             <p>Section: {this.state.section}</p>
                                             <p>Enroll Date: {this.state.year}</p>
@@ -176,13 +203,34 @@ class Profile extends Component {
                                                   <a href={`http://localhost:3012/images/${this.state.routine}`}>
                                                     <Card.Img variant="top" src={`http://localhost:3012/images/${this.state.routine}`} className="fix-image" alt="image not found" />
                                                 </a></> : <p>Routine Not found</p>
-                                            }
-
+                                            }                                        
+                                          
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
 
+                                   <Card className="fix-news" border="success" style={{ width: '18rem' }}>
+                                <Card.Header>Fee Details</Card.Header>
+                                    <Card.Body>
+                                                         
+                                        <Card.Text>
+                                         {
+                                                this.state.fee ? <> 
+                                               
+                                                <p> Tuition Fee: {this.state.fee.tuition} </p>
+                                                <p> Extra Curriculum Fee: {this.state.fee.eca} </p>
+                                                <p> Transportation Fee: {this.state.fee.trans} </p>
+                                                <p> Exam Fee: {this.state.fee.examfee} </p>
+                                                <p> Last Due: {this.state.fee.lastdue} </p>
+                                                <p> Total: {this.state.fee.tuition+this.state.fee.eca+this.state.fee.trans+this.state.fee.examfee+this.state.fee.lastdue} </p>
 
+                                                </> : <p>Fee Not found</p>
+                                            }
+
+                                     </Card.Text>
+                                      </Card.Body>
+                                  </Card>
+                                
                             </div>
                             <div className="container">
                                 <Card className="fix-news" border="secondary" style={{ width: '18rem' }}>
