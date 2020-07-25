@@ -29,6 +29,11 @@ class StaffNav extends Component {
                   <label className="admin">Assignment</label>{" "}
                 </Nav.Link>
 
+                <Nav.Link href="/staff/question">
+                  <i className="fa fa-book" aria-hidden="true"></i>{" "}
+                  <label className="admin">Question</label>{" "}
+                </Nav.Link>
+
                 {/* for end of assignment */}
               </Nav>
 
