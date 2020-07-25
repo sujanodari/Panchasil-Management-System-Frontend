@@ -56,6 +56,7 @@ import studentProfilePictureUpdate from './component/dashboard/student/UpdatePro
 // for import assignment
 import AddAssignment from "./component/dashboard/staff/AddAssignment";
 import viewAssignment from "./component/dashboard/student/viewAssignment";
+import AddQuestion from "./component/dashboard/staff/AddQuestion";
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
       <Private exact path="/student/profile" component={StudentProfile} />
 
       <PrivateStaff exact path="/staff" component={StaffDashboard} />
+      <PrivateStaff exact path="/staff/question" component={AddQuestion}/>
       <PrivateStaff
         exact
         path="/notice/view/staff"
