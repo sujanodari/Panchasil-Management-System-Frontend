@@ -3,7 +3,7 @@ import "../../App.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Logo from "./logo.png";
-// import NavDropdown from 'react-bootstrap/NavDropdown'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 class StaffNav extends Component {
   render() {
     return (
@@ -20,21 +20,20 @@ class StaffNav extends Component {
                   <i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}
                   <label className="admin">Attendence</label>{" "}
                 </Nav.Link>
-                {/* <NavDropdown className="admin" title="Notice"  id="collasible-nav-dropdown1">
-                                <NavDropdown.Item href="notice/view/staff"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Notice</label></NavDropdown.Item>
-                            </NavDropdown> */}
-                {/* for assignment */}
-                <Nav.Link href="/staff/assignment">
-                  <i className="fa fa-book" aria-hidden="true"></i>{" "}
-                  <label className="admin">Assignment</label>{" "}
-                </Nav.Link>
-
-                <Nav.Link href="/staff/question">
-                  <i className="fa fa-book" aria-hidden="true"></i>{" "}
-                  <label className="admin">Question</label>{" "}
-                </Nav.Link>
-
-                {/* for end of assignment */}
+                <NavDropdown
+                  className="admin"
+                  title="Assignment"
+                  id="collasible-nav-dropdown1"
+                >
+                  <NavDropdown.Item href="/staff/assignment">
+                    <i className="fa fa-plus" aria-hidden="true"></i>{" "}
+                    <label className="admin">Add Assignment</label>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/staff/retrieve">
+                    <i className="fa fa-book" aria-hidden="true"></i>{" "}
+                    <label className="admin">View Assignment</label>
+                  </NavDropdown.Item>
+                </NavDropdown>
               </Nav>
 
               <Nav>

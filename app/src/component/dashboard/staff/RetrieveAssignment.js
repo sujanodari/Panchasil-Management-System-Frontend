@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Nav from "../../NavBar/StudentNav";
+import StaffNav from "../../NavBar/StaffNav";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 import axois from "axios";
-class ViewAssignment extends Component {
+class RetrieveAssignment extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,26 +32,32 @@ class ViewAssignment extends Component {
 
         axois
           .get(
-            `http://localhost:3012/api/v1/assignment/${this.state.userId}`,
+            `http://localhost:3012/api/v1/teacherassignment/${this.state.userId}`,
             this.state.config
           )
           .then((response) => {
-            if (response.data.status === 201) {
-              // console.log(response.data.result.class + "data");
-              //console.log(response.data.result);
-              this.setState({
-                allclasses: response.data.result,
-              });
-            }
+            console.log(response.data);
+            this.setState({
+              allclasses: response.data,
+            });
           });
       });
   }
-
+  handleDelete = (id) => {
+    axois
+      .delete("http://localhost:3012/api/v1/teacherassignment/" + id, this.state.config)
+      .then(function (response) {
+        window.location.reload();
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  };
   render() {
-    console.log(this.state.allclasses);
+    // console.log(this.state.allclasses);
     return (
       <>
-        <Nav />
+        <StaffNav />
         {this.state.allclasses.length === 0 ? (
           <p>No result available</p>
         ) : (
@@ -70,12 +77,12 @@ class ViewAssignment extends Component {
                           <b>Title:</b>
                         </p>
                         <p>{allclasses.title}</p>
+
                         {allclasses.image != null ? (
                           <div>
                             <p>
                               <b>File:</b>
                             </p>
-
                             <a
                               href={`http://localhost:3012/images/${allclasses.image}`}
                             >
@@ -100,6 +107,17 @@ class ViewAssignment extends Component {
                         <p>{allclasses.createdAt}</p>
                       </Card.Text>
                     </Card.Body>
+                    <Button
+                    className="btn btn-danger"
+                    type="submit"
+                    onClick={() => {
+                      if (window.confirm("Are you sure??"))
+                        this.handleDelete(allclasses.assignmentId);
+                    }}
+                    // onClick={() => this.handleDelete(allUsers.userId, index)}
+                  >
+                    Delete
+                  </Button>
                   </Card>
                 </div>
               ))}
@@ -111,4 +129,4 @@ class ViewAssignment extends Component {
   }
 }
 
-export default ViewAssignment;
+export default RetrieveAssignment;
