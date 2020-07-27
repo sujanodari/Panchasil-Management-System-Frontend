@@ -44,12 +44,16 @@ class Notice extends Component {
                       </a>
                     )}
                     <Card.Body>
-                      <small>
+                    {
+                        localStorage.getItem("type")==="Admin" && localStorage.getItem("myToken") ?
+                        <small>
                         <a href={`noticeImageUpdate/${notices.noticeId}`}>
                           {" "}
                           Edit Image{" "}
                         </a>
                       </small>
+                        :null
+                      }
                       <Card.Title>{notices.title}</Card.Title>
                       <Card.Text>{notices.description}</Card.Text>
                     </Card.Body>
@@ -57,7 +61,11 @@ class Notice extends Component {
                       <small className="text-muted">
                         <label name="posted">Posted By:</label>
                         {notices.name} at {notices.createdAt}
+                        {
+                        localStorage.getItem("type")==="Admin" ?
                         <a href={`noticeUpdate/${notices.noticeId}`}> Edit </a>
+                        :null
+                      }
                       </small>
                     </Card.Footer>
                   </Card>

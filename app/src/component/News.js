@@ -44,12 +44,16 @@ class News extends Component {
                       </a>
                     )}
                     <Card.Body>
-                      <small>
+                    {
+                        localStorage.getItem("type")==="Admin" ?
+                        <small>
                         <a href={`newsImageUpdate/${news.newsId}`}>
                           {" "}
                           Edit Image{" "}
                         </a>
                       </small>
+                        :null
+                      }
                       <Card.Title>{news.title}</Card.Title>
                       <Card.Text>{news.description}</Card.Text>
                     </Card.Body>
@@ -57,7 +61,11 @@ class News extends Component {
                       <small className="text-muted">
                         <label name="posted">Posted By:</label>
                         {news.name} at {news.createdAt}
+                        {
+                        localStorage.getItem("type")==="Admin" ?
                         <a href={`newsUpdate/${news.newsId}`}> Edit </a>
+                        :null
+                      }
                       </small>
                     </Card.Footer>
                   </Card>

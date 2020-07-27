@@ -16,6 +16,7 @@ class AddQuestion extends Component {
       section: "",
       Exam_type: "",
       ExamDate: "",
+      user_Id:"",
       Verror: false,
       file: null,
       questionBank: null,
@@ -51,6 +52,13 @@ class AddQuestion extends Component {
   componentDidMount() {
     bsCustomFileInput.init();
     axios
+    .get("http://localhost:3012/api/v1/decode", this.state.config)
+    .then((response) => {
+      this.setState({
+        user_Id: response.data.userId,
+        user: response.data,
+      });
+    axios
       .get(`http://localhost:3012/api/v1/class`, this.state.config)
       .then((response) => {
         console.log(response.data);
@@ -58,6 +66,7 @@ class AddQuestion extends Component {
           allClasses: response.data,
         });
       });
+    });
   }
 
   questionAdd = (e) => {
@@ -83,22 +92,28 @@ class AddQuestion extends Component {
       e.preventDefault();
       axios
         .post(
-          "http://localhost:3012/api/v1/question",
+          `http://localhost:3012/api/v1/question/${this.state.user_Id}`,
           this.state,
           this.state.config
         )
         .then((response) => {
-          this.setState({
-            class: "",
-            section: "",
-            Exam_type: "",
-            ExamDate: "",
-            Verror: false,
-            questionBank: null,
+          if (response.data.status === 201) {
+            this.setState({
+              success: true,
+            });
+          }
+        })
 
-            success: true,
-            imageSuccess: false,
-          });
+        .catch((err) => {
+          if (err.response.status === 403) {
+            this.setState({
+              cnotfound: true,
+            });
+          } else if (err.response.status === 404) {
+            this.setState({
+              already: true,
+            });
+          }
         });
     }
   };

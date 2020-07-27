@@ -115,6 +115,7 @@ class Profile extends Component {
                         href={`http://localhost:3012/images/${this.state.user.image}`}
                       >
                         <Card.Img
+                         style={{ height: "30rem" }}
                           variant="top"
                           src={`http://localhost:3012/images/${this.state.user.image}`}
                           className="fix-image"

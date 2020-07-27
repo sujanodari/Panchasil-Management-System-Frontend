@@ -55,6 +55,7 @@ import AddAssignment from "./component/dashboard/staff/AddAssignment";
 import viewAssignment from "./component/dashboard/student/viewAssignment";
 import teacherviewAssignment from "./component/dashboard/staff/RetrieveAssignment";
 import AddQuestion from "./component/dashboard/staff/AddQuestion";
+import RetrieveQuestion from "./component/dashboard/staff/RetrieveQuestion";
 
 function App() {
   return (
@@ -68,6 +69,8 @@ function App() {
 
       <PrivateStaff exact path="/staff" component={StaffDashboard} />
       <PrivateStaff exact path="/staff/question" component={AddQuestion} />
+      <PrivateStaff exact path ="/staff/retrieveQuestion" component={RetrieveQuestion}/>
+
       <PrivateStaff
         exact
         path="/notice/view/staff"
