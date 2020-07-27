@@ -37,25 +37,23 @@ import AddRoutine from "./component/dashboard/admin/AddRoutine";
 import UserAction from "./component/dashboard/admin/UserAction";
 import Fees from "./component/dashboard/admin/Fees";
 
-
-import UpdateNews from './component/dashboard/admin/UpdateNews';
-import UpdateNotices from './component/dashboard/admin/UpdateNotices';
-import UpdateSubject from './component/subject/UpdateSubject';
-import UpdateClass from './component/dashboard/admin/UpdateClass';
-import UpdateProfile from './component/dashboard/admin/UpdateProfile';
-import UpdateNewsImage from './component/dashboard/admin/UpdateNewsImage';
-import UpdateNoticeImage from './component/dashboard/admin/UpdateNoticeImage';
-import UpdateProfilePicture from './component/dashboard/admin/UpdateProfilePicture';
-import staffProfileUpdate from './component/dashboard/staff/UpdateProfile';
-import staffProfilePictureUpdate from './component/dashboard/staff/UpdateProfilePicture';
-import studentProfileUpdate from './component/dashboard/student/UpdateProfile';
-import studentProfilePictureUpdate from './component/dashboard/student/UpdateProfilePicture';
-
-
+import UpdateNews from "./component/dashboard/admin/UpdateNews";
+import UpdateNotices from "./component/dashboard/admin/UpdateNotices";
+import UpdateSubject from "./component/subject/UpdateSubject";
+import UpdateClass from "./component/dashboard/admin/UpdateClass";
+import UpdateProfile from "./component/dashboard/admin/UpdateProfile";
+import UpdateNewsImage from "./component/dashboard/admin/UpdateNewsImage";
+import UpdateNoticeImage from "./component/dashboard/admin/UpdateNoticeImage";
+import UpdateProfilePicture from "./component/dashboard/admin/UpdateProfilePicture";
+import staffProfileUpdate from "./component/dashboard/staff/UpdateProfile";
+import staffProfilePictureUpdate from "./component/dashboard/staff/UpdateProfilePicture";
+import studentProfileUpdate from "./component/dashboard/student/UpdateProfile";
+import studentProfilePictureUpdate from "./component/dashboard/student/UpdateProfilePicture";
 
 // for import assignment
 import AddAssignment from "./component/dashboard/staff/AddAssignment";
 import viewAssignment from "./component/dashboard/student/viewAssignment";
+import teacherviewAssignment from "./component/dashboard/staff/RetrieveAssignment";
 import AddQuestion from "./component/dashboard/staff/AddQuestion";
 
 function App() {
@@ -69,7 +67,7 @@ function App() {
       <Private exact path="/student/profile" component={StudentProfile} />
 
       <PrivateStaff exact path="/staff" component={StaffDashboard} />
-      <PrivateStaff exact path="/staff/question" component={AddQuestion}/>
+      <PrivateStaff exact path="/staff/question" component={AddQuestion} />
       <PrivateStaff
         exact
         path="/notice/view/staff"
@@ -99,6 +97,12 @@ function App() {
         component={viewAssignment}
       />
 
+      <PrivateStaff
+        exact
+        path="/staff/retrieve"
+        component={teacherviewAssignment}
+      />
+
       <PrivateAdmin exact path="/admin" component={AminDashboard} />
       <PrivateAdmin exact path="/news/add" component={AddNews} />
       <PrivateAdmin exact path="/notice/add" component={AddNotice} />
@@ -117,23 +121,53 @@ function App() {
       <PrivateAdmin exact path="/addRoutine/:id" component={AddRoutine} />
       <PrivateAdmin exact path="/fees/:id" component={Fees} />
 
+      <PrivateAdmin exact path="/news/newsUpdate/:id" component={UpdateNews} />
+      <PrivateAdmin
+        exact
+        path="/news/newsImageUpdate/:id"
+        component={UpdateNewsImage}
+      />
+      <PrivateAdmin
+        exact
+        path="/notice/noticeUpdate/:id"
+        component={UpdateNotices}
+      />
+      <PrivateAdmin
+        exact
+        path="/notice/noticeImageUpdate/:id"
+        component={UpdateNoticeImage}
+      />
+      <PrivateAdmin exact path="/updateSubject/:id" component={UpdateSubject} />
+      <PrivateAdmin exact path="/updateClass/:id" component={UpdateClass} />
 
-      <PrivateAdmin exact path ="/news/newsUpdate/:id" component={UpdateNews}/>
-    <PrivateAdmin exact path ="/news/newsImageUpdate/:id" component={UpdateNewsImage}/>
-    <PrivateAdmin exact path ="/notice/noticeUpdate/:id" component={UpdateNotices}/>
-    <PrivateAdmin exact path ="/notice/noticeImageUpdate/:id" component={UpdateNoticeImage}/>
-    <PrivateAdmin exact path ="/updateSubject/:id" component={UpdateSubject}/>
-    <PrivateAdmin exact path ="/updateClass/:id" component={UpdateClass}/>
-    
-    <PrivateAdmin exact path ="/profileUpdate/:id" component={UpdateProfile}/>
-    <PrivateAdmin exact path ="/admin/profilePictureUpdate/:id" component={UpdateProfilePicture}/>
+      <PrivateAdmin exact path="/profileUpdate/:id" component={UpdateProfile} />
+      <PrivateAdmin
+        exact
+        path="/admin/profilePictureUpdate/:id"
+        component={UpdateProfilePicture}
+      />
 
-    <PrivateStaff exact path="/staffProfileUpdate/:id" component={staffProfileUpdate}/>
-    <PrivateStaff exact path ="/staff/staffProfilePictureUpdate/:id" component={staffProfilePictureUpdate}/>
+      <PrivateStaff
+        exact
+        path="/staffProfileUpdate/:id"
+        component={staffProfileUpdate}
+      />
+      <PrivateStaff
+        exact
+        path="/staff/staffProfilePictureUpdate/:id"
+        component={staffProfilePictureUpdate}
+      />
 
-
-    <Private exact path ="/studentProfileUpdate/:id" component={studentProfileUpdate}/>
-    <Private exact path ="/student/studentProfilePictureUpdate/:id" component={studentProfilePictureUpdate}/>
+      <Private
+        exact
+        path="/studentProfileUpdate/:id"
+        component={studentProfileUpdate}
+      />
+      <Private
+        exact
+        path="/student/studentProfilePictureUpdate/:id"
+        component={studentProfilePictureUpdate}
+      />
     </BrowserRouter>
   );
 }

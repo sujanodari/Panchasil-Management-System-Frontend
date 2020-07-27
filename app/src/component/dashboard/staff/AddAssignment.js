@@ -14,7 +14,10 @@ class AddAssignment extends Component {
       class: "",
       section: "",
       title: "",
+      user_Id: "",
       submissiondate: "",
+      cnotfound: false,
+      already: false,
       Verror: false,
       file: null,
       image: null,
@@ -50,18 +53,21 @@ class AddAssignment extends Component {
   componentDidMount() {
     bsCustomFileInput.init();
     axios
-      .get(`http://localhost:3012/api/v1/class`, this.state.config)
+      .get("http://localhost:3012/api/v1/decode", this.state.config)
       .then((response) => {
-        console.log(response.data);
         this.setState({
-          allClasses: response.data,
+          user_Id: response.data.userId,
+          user: response.data,
         });
+        axios
+          .get(`http://localhost:3012/api/v1/class`, this.state.config)
+          .then((response) => {
+            this.setState({
+              allClasses: response.data,
+            });
+          });
       });
   }
-
-  // componentDidMount() {
-
-  // }
 
   assignmentAdd = (e) => {
     e.preventDefault();
@@ -86,29 +92,33 @@ class AddAssignment extends Component {
       e.preventDefault();
       axios
         .post(
-          "http://localhost:3012/api/v1/assignment",
+          `http://localhost:3012/api/v1/assignment/${this.state.user_Id}`,
           this.state,
           this.state.config
         )
         .then((response) => {
-          this.setState({
-            class: "",
-            section: "",
-            title: "",
-            submissiondate: "",
-            Verror: false,
-            image: null,
-            name: "",
-            success: true,
-            imageSuccess: false,
-          });
+          if (response.data.status === 201) {
+            this.setState({
+              success: true,
+            });
+          }
+        })
+        .catch((err) => {
+          if (err.response.status === 403) {
+            this.setState({
+              cnotfound: true,
+            });
+          } else if (err.response.status === 404) {
+            this.setState({
+              already: true,
+            });
+          }
         });
     }
   };
 
   upload = (e) => {
     e.preventDefault();
-    // alert(e.preventDefault);
     const formdata = new FormData();
     formdata.append("myImage", this.state.file);
     axios
@@ -125,27 +135,55 @@ class AddAssignment extends Component {
   };
   render() {
     if (this.state.success === true) {
+     // console.log(this.state.success)
       return (
         <Redirect
           to={{
-            pathname: "/staff",
-            state: "Assignment added",
+            pathname: "/staff/retrieve",
           }}
         />
       );
     }
+    // else if (this.state.already === true) {
+    //   return (
+    //     <Redirect
+    //       to={{
+    //         pathname: "/staff/assignment",
+    //         state: "Topic already assigned",
+    //       }}
+    //     />
+    //   );
+    // } else if (this.state.cnotfound === true) {
+    //   return (
+    //     <Redirect
+    //       to={{
+    //         pathname: "/staff/assignment",
+    //         state: "Class not found",
+    //       }}
+    //     />
+    //   );
 
     return (
       <>
         <StaffNav />
         <div className="container fixed">
           <h5 align="center">Add assignment</h5>
+          {this.state.cnotfound === true ? (
+            <h5 align="center" className="labelColor">
+              class not found
+            </h5>
+          ) : null}
+          {this.state.already === true ? (
+            <h5 align="center" className="labelColor">
+              Topic already assigned
+            </h5>
+          ) : null}
           <Form>
-            {this.state.success === true ? (
+            {/* {this.state.success === true ? (
               <label className="labelColor" name="errEmail">
                 Assignment assigned successfully
               </label>
-            ) : null}
+            ) : null} */}
 
             {this.state.imageSuccess === true ? (
               <label className="labelColor" name="errEmail">
@@ -184,13 +222,10 @@ class AddAssignment extends Component {
                 onChange={this.handleChange}
               >
                 <option>Choose Section</option>
-                {this.state.allClasses.map((allClass) => (
-                  <option>{allClass.section}</option>
-                ))}
-                {/* <option>A</option>
+                <option>A</option>
                 <option>B</option>
                 <option>C</option>
-                <option>D</option> */}
+                <option>D</option>
               </Form.Control>
               {this.state.errors.section ? (
                 <label className="labelColor" name="errEmail">
@@ -257,6 +292,7 @@ class AddAssignment extends Component {
                 </Button>
               ) : null}
             </Form.Group>
+
             <Button
               variant="success"
               onClick={this.assignmentAdd}
