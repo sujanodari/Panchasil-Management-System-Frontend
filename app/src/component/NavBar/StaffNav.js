@@ -23,8 +23,7 @@ class StaffNav extends Component {
                 <NavDropdown
                   className="admin"
                   title="Assignment"
-                  id="collasible-nav-dropdown1"
-                >
+                  id="collasible-nav-dropdown1">
                   <NavDropdown.Item href="/staff/assignment">
                     <i className="fa fa-plus" aria-hidden="true"></i>{" "}
                     <label className="admin">Add Assignment</label>
@@ -32,6 +31,20 @@ class StaffNav extends Component {
                   <NavDropdown.Item href="/staff/retrieve">
                     <i className="fa fa-book" aria-hidden="true"></i>{" "}
                     <label className="admin">View Assignment</label>
+                  </NavDropdown.Item>
+                </NavDropdown>
+
+                <NavDropdown
+                  className="admin"
+                  title="Question"
+                  id="collasible-nav-dropdown1">
+                  <NavDropdown.Item href="/staff/question">
+                    <i className="fa fa-plus" aria-hidden="true"></i>{" "}
+                    <label className="admin">Add Question</label>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/staff/retrieveQuestion">
+                    <i className="fa fa-book" aria-hidden="true"></i>{" "}
+                    <label className="admin">View Question</label>
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
