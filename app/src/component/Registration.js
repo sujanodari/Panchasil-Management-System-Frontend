@@ -329,7 +329,7 @@ class Registration extends Component {
                                                 <Form.Group className="btn-block button" variant="primary" name="facebook">
 
                                                     <FacebookLogin
-                                                        appId="717798845459487"
+                                                        appId="332905457711217"
                                                         fields="email,name,picture,id,birthday,gender,hometown"
                                                         scope="public_profile,email,user_birthday,user_hometown,user_gender"
                                                         callback={this.responseFacebook} />

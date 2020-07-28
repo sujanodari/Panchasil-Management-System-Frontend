@@ -21,7 +21,10 @@ class StudentNav extends Component {
                   <i className="fa fa-book" aria-hidden="true"></i>{" "}
                   <label className="admin">View Assignment</label>{" "}
                 </Nav.Link>
-
+                <Nav.Link href="/student/viewActivities">
+                  <i className="fa fa-book" aria-hidden="true"></i>{" "}
+                  <label className="admin">View Activities</label>{" "}
+                </Nav.Link>
                 <Nav.Link href="/student/profile">
                   <i className="fa fa-user" aria-hidden="true"></i>{" "}
                   <label className="admin">Profile</label>{" "}

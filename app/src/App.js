@@ -56,7 +56,11 @@ import viewAssignment from "./component/dashboard/student/viewAssignment";
 import teacherviewAssignment from "./component/dashboard/staff/RetrieveAssignment";
 import AddQuestion from "./component/dashboard/staff/AddQuestion";
 import RetrieveQuestion from "./component/dashboard/staff/RetrieveQuestion";
-
+// for activities
+import addActivities from "./component/dashboard/admin/AddActivities";
+import ViewActivities from "./component/dashboard/admin/ViewActivities";
+import StidentViewActivities from "./component/dashboard/student/ViewActivities";
+// import StaffaddActivities from "./component/dashboard/staff/AddActivities";
 function App() {
   return (
     <BrowserRouter>
@@ -105,6 +109,15 @@ function App() {
         path="/staff/retrieve"
         component={teacherviewAssignment}
       />
+
+
+   {/* for activities */}
+   <PrivateAdmin exact path="/activities/add" component={addActivities} />
+      {/* <PrivateStaff exact path="/staff/addactivities" component={StaffaddActivities} /> */}
+      <PrivateAdmin exact path="/activities/view" component={ViewActivities} />
+      <Private exact path="/student/viewActivities" component={StidentViewActivities} />
+
+
 
       <PrivateAdmin exact path="/admin" component={AminDashboard} />
       <PrivateAdmin exact path="/news/add" component={AddNews} />
