@@ -61,6 +61,13 @@ import addActivities from "./component/dashboard/admin/AddActivities";
 import ViewActivities from "./component/dashboard/admin/ViewActivities";
 import StidentViewActivities from "./component/dashboard/student/ViewActivities";
 // import StaffaddActivities from "./component/dashboard/staff/AddActivities";
+
+import AddExam from './component/dashboard/staff/AddExam'
+import ViewExam from './component/dashboard/staff/ViewExam'
+import ExamUser from './component/dashboard/staff/ExamUser'
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -74,6 +81,11 @@ function App() {
       <PrivateStaff exact path="/staff" component={StaffDashboard} />
       <PrivateStaff exact path="/staff/question" component={AddQuestion} />
       <PrivateStaff exact path ="/staff/retrieveQuestion" component={RetrieveQuestion}/>
+
+      <PrivateStaff exact path ="/staff/add/exam" component={AddExam}/>
+    <PrivateStaff exact path ="/staff/view/exam" component={ViewExam}/>
+      <PrivateStaff exact path="/exam/user/:id" component={ExamUser}/>
+   
 
       <PrivateStaff
         exact
