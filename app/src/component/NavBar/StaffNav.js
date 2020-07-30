@@ -49,7 +49,7 @@ class StaffNav extends Component {
                 </NavDropdown>
 
                 <Nav className="mr-auto">
-                  <Nav.Link href="/staff/attendence"><i className="fa fa-calendar-o" aria-hidden="true"></i> <label className="admin">Attendence</label> </Nav.Link>
+                 
                   <NavDropdown className="admin" title="Exam" id="collasible-nav-exam">
                     <NavDropdown.Item href="/staff/add/exam"><i className="fa fa-plus" aria-hidden="true"></i>  <label className="admin">Add Exam</label></NavDropdown.Item>
                     <NavDropdown.Item href="/staff/view/exam"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Exam</label></NavDropdown.Item>
