@@ -101,7 +101,7 @@ class Attendence extends Component{
                    
                       this.state.enrolls.map((enrolls)=>
                       {
-                        if(enrolls.user_id===this.state.user_id){
+                        if(enrolls.UserUserId===this.state.user_id){
                             this.state.student_name=user.fullName
                             this.state.email=user.email
                             this.state.attendence=user.attendance

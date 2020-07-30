@@ -10,8 +10,8 @@ class ViewEnroll extends Component {
       enrolls: [],
       users:[],
       enroll_id:'',
-      user_id:'',
-      class_id:'',
+      UserUserId:'',
+      ClassClassId:'',
       email:'',
       class_name:'',
       userType:"",
@@ -100,8 +100,8 @@ class ViewEnroll extends Component {
                 {this.state.enrolls.map((user) => (
                   <tr key={user.enrollId} 
                   value={this.state.enroll_id=user.enrollId,
-                   this.state.user_id=user.user_id,
-                   this.state.class_id=user.class_id} >
+                   this.state.UserUserId=user.UserUserId,
+                   this.state.ClassClassId=user.ClassClassId} >
                     <td>
                       {user.enrollId}
                       
@@ -109,7 +109,7 @@ class ViewEnroll extends Component {
                     {
                       this.state.users.map((users)=>
                       {
-                        if(users.userId===this.state.user_id){
+                        if(users.userId===this.state.UserUserId){
                             this.state.student_name=users.fullName
                             this.state.email=users.email
                             this.state.userType=users.userType
@@ -118,7 +118,7 @@ class ViewEnroll extends Component {
                       ),
                       this.state.classes.map(classes=>
                        {
-                         if(classes.classId===this.state.class_id){
+                         if(classes.classId===this.state.ClassClassId){
                             this.state.class_name=classes.class
                             this.state.section=classes.section
                          }

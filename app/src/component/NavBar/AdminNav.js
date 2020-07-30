@@ -93,6 +93,20 @@ class AdminNav extends Component {
                         <label className="admin">View activities</label>
                       </NavDropdown.Item>
                     </NavDropdown>
+                    <NavDropdown
+                      className="admin"
+                      title="Report"
+                      id="collasible-nav-dropdown2"
+                    >
+                      <NavDropdown.Item href="/report/viewStudentsDetails">
+                        <i className="fa fa-plus" aria-hidden="true"></i>
+                        <label className="admin">Report</label>{" "}
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="/report/feeDetails">
+                        <i className="fa fa-plus" aria-hidden="true"></i>
+                        <label className="admin">Fee Details</label>{" "}
+                      </NavDropdown.Item>
+                    </NavDropdown>
                   </Nav>
                   <Nav>
                     <Nav.Link href="/admin/profile">

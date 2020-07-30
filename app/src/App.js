@@ -62,11 +62,17 @@ import ViewActivities from "./component/dashboard/admin/ViewActivities";
 import StidentViewActivities from "./component/dashboard/student/ViewActivities";
 // import StaffaddActivities from "./component/dashboard/staff/AddActivities";
 
-import AddExam from './component/dashboard/staff/AddExam'
-import ViewExam from './component/dashboard/staff/ViewExam'
-import ExamUser from './component/dashboard/staff/ExamUser'
+import AddExam from "./component/dashboard/staff/AddExam";
+import ViewExam from "./component/dashboard/staff/ViewExam";
+import ExamUser from "./component/dashboard/staff/ExamUser";
 
-
+import InvoicePdf from "./component/dashboard/admin/Invoice";
+import characterPdf from "./component/dashboard/admin/character";
+import addUserPDF from "./component/dashboard/admin/addUser";
+import studentDetails from "./component/dashboard/admin/StudentDetails";
+import FeeDetails from "./component/dashboard/admin/FeeDetails";
+import FeeReport from "./component/dashboard/admin/FeeClearanceReport";
+import FeeInvoiceReport from "./component/dashboard/admin/FeeInvoiceReport";
 
 function App() {
   return (
@@ -80,12 +86,15 @@ function App() {
 
       <PrivateStaff exact path="/staff" component={StaffDashboard} />
       <PrivateStaff exact path="/staff/question" component={AddQuestion} />
-      <PrivateStaff exact path ="/staff/retrieveQuestion" component={RetrieveQuestion}/>
+      <PrivateStaff
+        exact
+        path="/staff/retrieveQuestion"
+        component={RetrieveQuestion}
+      />
 
-      <PrivateStaff exact path ="/staff/add/exam" component={AddExam}/>
-    <PrivateStaff exact path ="/staff/view/exam" component={ViewExam}/>
-      <PrivateStaff exact path="/exam/user/:id" component={ExamUser}/>
-   
+      <PrivateStaff exact path="/staff/add/exam" component={AddExam} />
+      <PrivateStaff exact path="/staff/view/exam" component={ViewExam} />
+      <PrivateStaff exact path="/exam/user/:id" component={ExamUser} />
 
       <PrivateStaff
         exact
@@ -122,14 +131,15 @@ function App() {
         component={teacherviewAssignment}
       />
 
-
-   {/* for activities */}
-   <PrivateAdmin exact path="/activities/add" component={addActivities} />
+      {/* for activities */}
+      <PrivateAdmin exact path="/activities/add" component={addActivities} />
       {/* <PrivateStaff exact path="/staff/addactivities" component={StaffaddActivities} /> */}
       <PrivateAdmin exact path="/activities/view" component={ViewActivities} />
-      <Private exact path="/student/viewActivities" component={StidentViewActivities} />
-
-
+      <Private
+        exact
+        path="/student/viewActivities"
+        component={StidentViewActivities}
+      />
 
       <PrivateAdmin exact path="/admin" component={AminDashboard} />
       <PrivateAdmin exact path="/news/add" component={AddNews} />
@@ -195,6 +205,33 @@ function App() {
         exact
         path="/student/studentProfilePictureUpdate/:id"
         component={studentProfilePictureUpdate}
+      />
+
+      <PrivateAdmin exact path="/report/invoice/:id" component={InvoicePdf} />
+      <PrivateAdmin
+        exact
+        path="/report/character/:id"
+        component={characterPdf}
+      />
+      <PrivateAdmin exact path="/report/details/:id" component={addUserPDF} />
+
+      <PrivateAdmin
+        exact
+        path="/report/viewStudentsDetails"
+        component={studentDetails}
+      />
+      <PrivateAdmin exact path="/report/feeDetails" component={FeeDetails} />
+
+      <PrivateAdmin
+        exact
+        path="/report/feeClearanceDetails/:id"
+        component={FeeReport}
+      />
+
+      <PrivateAdmin 
+      exact
+      path="/report/feeInvoiceReports/:id"
+      component={FeeInvoiceReport}
       />
     </BrowserRouter>
   );

@@ -59,26 +59,23 @@ class RetrieveQuestion extends Component {
                     border="success"
                     style={{ width: "18rem" }}
                   >
-                    <Card.Header>Question Details</Card.Header>
+                     <Card.Header>Question Details</Card.Header>
                     <Card.Body>
                       <Card.Text>
-                        <p>
-                          <b>Upload Date:</b>
+                      <p>
+                          <b>Class: </b>
                         </p>
-                        <p>{allclasses.ExamDate}</p>
+                        <p>{allclasses.class}{allclasses.section}</p>
                         <p>
                           <b>Exam Type: </b>
                         </p>
                         <p>{allclasses.Exam_type}</p>
-                        <p>
-                          <b>Class: </b>
-                        </p>
-                        <p>{allclasses.class}</p>
+                        
 
                         <p>
-                          <b>Section: </b>
+                          <b>Upload Date:</b>
                         </p>
-                        <p>{allclasses.section}</p>
+                        <p>{allclasses.ExamDate}</p>
 
                         {allclasses.questionBank != null ? (
                           <div>
@@ -86,11 +83,11 @@ class RetrieveQuestion extends Component {
                               <b>File:</b>
                             </p>
                             <a
-                              href={`http://localhost:3012/images/${allclasses.image}`}
+                              href={`http://localhost:3012/images/${allclasses.questionBank}`}
                             >
                               <Card.Img
                                 variant="top"
-                                src={`http://localhost:3012/images/${allclasses.image}`}
+                                src={`http://localhost:3012/images/${allclasses.questionBank}`}
                                 className="fix-image"
                                 alt="Click Here to download"
                               />

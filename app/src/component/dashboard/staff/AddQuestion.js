@@ -141,7 +141,7 @@ class AddQuestion extends Component {
       return (
         <Redirect
           to={{
-            pathname: "/staff",
+            pathname: "/staff/retrieveQuestion",
             state: "Assignment added",
           }}
         />
