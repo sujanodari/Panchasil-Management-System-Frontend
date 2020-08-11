@@ -8,16 +8,16 @@ class ViewEnroll extends Component {
     super(props);
     this.state = {
       enrolls: [],
-      users:[],
-      enroll_id:'',
-      UserUserId:'',
-      ClassClassId:'',
-      email:'',
-      class_name:'',
-      userType:"",
-      section:'',
-      student_name:'',
-      classes:[],
+      users: [],
+      enroll_id: "",
+      UserUserId: "",
+      ClassClassId: "",
+      email: "",
+      class_name: "",
+      userType: "",
+      section: "",
+      student_name: "",
+      classes: [],
       config: {
         headers: { Authorization: ` ${localStorage.getItem("myToken")}` },
       },
@@ -32,7 +32,7 @@ class ViewEnroll extends Component {
           enrolls: response.data,
         });
       });
-      axios
+    axios
       .get("http://localhost:3012/api/v1/class", this.state.config)
       .then((response) => {
         // this.props.location.state=null
@@ -40,7 +40,7 @@ class ViewEnroll extends Component {
           classes: response.data,
         });
       });
-      axios
+    axios
       .get("http://localhost:3012/api/v1/users", this.state.config)
       .then((response) => {
         // this.props.location.state=null
@@ -48,30 +48,27 @@ class ViewEnroll extends Component {
           users: response.data,
         });
       });
-
-
   }
 
-
-  handleDelete(id){
-    axios.delete(`http://localhost:3012/api/v1/enroll/${id}`,this.state.config)
-    .then(response=>{
-      axios
-      .get("http://localhost:3012/api/v1/enroll", this.state.config)
+  handleDelete(id) {
+    axios
+      .delete(`http://localhost:3012/api/v1/enroll/${id}`, this.state.config)
       .then((response) => {
-        // this.props.location.state=null
-        this.setState({
-          enrolls: response.data,
-         
-        });
+        axios
+          .get("http://localhost:3012/api/v1/enroll", this.state.config)
+          .then((response) => {
+            // this.props.location.state=null
+            this.setState({
+              enrolls: response.data,
+            });
+          });
       });
-    })
   }
   render() {
     return (
       <>
         <AdminNav />
-        {this.state.enrolls.length ===0 ? (
+        {this.state.enrolls.length === 0 ? (
           <p align="center">No enrolls Found</p>
         ) : (
           <div className="container table-fixed">
@@ -98,51 +95,37 @@ class ViewEnroll extends Component {
               </thead>
               <tbody>
                 {this.state.enrolls.map((user) => (
-                  <tr key={user.enrollId} 
-                  value={this.state.enroll_id=user.enrollId,
-                   this.state.UserUserId=user.UserUserId,
-                   this.state.ClassClassId=user.ClassClassId} >
-                    <td>
-                      {user.enrollId}
-                      
-                    </td>
-                    {
-                      this.state.users.map((users)=>
-                      {
-                        if(users.userId===this.state.UserUserId){
-                            this.state.student_name=users.fullName
-                            this.state.email=users.email
-                            this.state.userType=users.userType
-                        }
-                      }
-                      ),
-                      this.state.classes.map(classes=>
-                       {
-                         if(classes.classId===this.state.ClassClassId){
-                            this.state.class_name=classes.class
-                            this.state.section=classes.section
-                         }
-                       } 
-                        )
+                  <tr
+                    key={user.enrollId}
+                    value={
+                      ((this.state.enroll_id = user.enrollId),
+                      (this.state.UserUserId = user.UserUserId),
+                      (this.state.ClassClassId = user.ClassClassId))
                     }
-                    <td>
-                      {this.state.student_name}
-                      
-                    </td>
+                  >
+                    <td>{user.enrollId}</td>
+                    {
+                      (this.state.users.map((users) => {
+                        if (users.userId === this.state.UserUserId) {
+                          this.state.student_name = users.fullName;
+                          this.state.email = users.email;
+                          this.state.userType = users.userType;
+                        }
+                      }),
+                      this.state.classes.map((classes) => {
+                        if (classes.classId === this.state.ClassClassId) {
+                          this.state.class_name = classes.class;
+                          this.state.section = classes.section;
+                        }
+                      }))
+                    }
+                    <td>{this.state.student_name}</td>
                     <td>
                       {this.state.class_name} {this.state.section}
-                      
                     </td>
-                    <td>
-                      {this.state.email}
-                    </td>
-                    <td>
-                      {this.state.userType}
-                    </td>
-                    <td>
-                      {user.year}
-                      
-                    </td>
+                    <td>{this.state.email}</td>
+                    <td>{this.state.userType}</td>
+                    <td>{user.year}</td>
                     <td>
                       <Button
                         className="btn button"
@@ -154,10 +137,10 @@ class ViewEnroll extends Component {
                         <i
                           className="fa fa-trash"
                           aria-hidden="true"
-                          onClick={() =>
-                            {if(window.confirm('Are you sure??')) this.handleDelete(user.enrollId)}
-                           
-                          }
+                          onClick={() => {
+                            if (window.confirm("Are you sure??"))
+                              this.handleDelete(user.enrollId);
+                          }}
                         ></i>
                       </Button>
                     </td>
@@ -167,6 +150,7 @@ class ViewEnroll extends Component {
             </Table>
           </div>
         )}
+        <br />
       </>
     );
   }

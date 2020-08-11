@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import StaffNav from "../../NavBar/StaffNav";
 import Card from "react-bootstrap/Card";
 import axois from "axios";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 class RetrieveQuestion extends Component {
   constructor(props) {
     super(props);
@@ -15,8 +15,8 @@ class RetrieveQuestion extends Component {
       ExamDate: "",
       questionBank: "",
       allclasses: [],
-      success:false,
-      config:{
+      success: false,
+      config: {
         headers: { Authorization: ` ${localStorage.getItem("myToken")}` },
       },
     };
@@ -42,18 +42,17 @@ class RetrieveQuestion extends Component {
               allclasses: response.data,
             });
           });
-      })
-    }
-    
-      delete(id){
-        axois.delete('http://localhost:3012/api/v1/question/'+id,this.state.config)
-        .then(response=>{
-           this.setState({
-               
-                success:true,
-                
-           })
-           axois
+      });
+  }
+
+  delete(id) {
+    axois
+      .delete("http://localhost:3012/api/v1/question/" + id, this.state.config)
+      .then((response) => {
+        this.setState({
+          success: true,
+        });
+        axois
           .get(
             `http://localhost:3012/api/v1/teacherQuestion/${this.state.userId}`,
             this.state.config
@@ -64,12 +63,8 @@ class RetrieveQuestion extends Component {
               allclasses: response.data,
             });
           });
-
-          })
-
-       }
-      
-  
+      });
+  }
 
   render() {
     return (
@@ -83,7 +78,7 @@ class RetrieveQuestion extends Component {
               {this.state.allclasses.map((allclasses) => (
                 <div className="col-md-4">
                   <Card
-                    className="fix-news"
+                    className="fix-news mycard"
                     border="success"
                     style={{ width: "18rem" }}
                   >
@@ -116,32 +111,37 @@ class RetrieveQuestion extends Component {
                             <a
                               href={`http://localhost:3012/images/${allclasses.image}`}
                             >
-
                               <Card.Img
-
                                 variant="top"
                                 src={`http://localhost:3012/images/${allclasses.image}`}
                                 className="fix-image"
-                                alt="Click Here to download"                               
-                              />                              
+                                alt="Click Here to download"
+                              />
                             </a>
                           </div>
                         ) : (
                           <span></span>
-                        )}  
+                        )}
 
-                            <td><Button variant="success" onClick={()=> this.delete(allclasses.questionId)} type="submit" className="btn-block">
-                                 Delete
-                                 </Button>
-                          </td>           
+                        <td>
+                          <Button
+                            variant="success"
+                            onClick={() => this.delete(allclasses.questionId)}
+                            type="submit"
+                            className="btn-block"
+                          >
+                            Delete
+                          </Button>
+                        </td>
                       </Card.Text>
-                    </Card.Body>                    
-                  </Card>                  
+                    </Card.Body>
+                  </Card>
                 </div>
               ))}
             </div>
           </div>
         )}
+        <br />
       </>
     );
   }

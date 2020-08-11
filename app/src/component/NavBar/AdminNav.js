@@ -4,7 +4,33 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo from "./logo.png";
+import Avatar from "react-avatar";
+import axois from "axios";
 class AdminNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullname: "",
+      image: "",
+      config: {
+        headers: { Authorization: ` ${localStorage.getItem("myToken")}` },
+      },
+      notices: [],
+    };
+  }
+
+  componentDidMount() {
+    //for getting username
+    axois
+      .get("http://localhost:3012/api/v1/decode", this.state.config)
+      .then((response) => {
+        this.setState({
+          fullname: response.data.fullName,
+          image: response.data.image,
+        });
+      });
+  }
+
   handleLogout() {
     localStorage.removeItem("type");
     localStorage.removeItem("myToken");
@@ -113,10 +139,19 @@ class AdminNav extends Component {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
-                  <Nav>
+                  <Nav className="center">
                     <Nav.Link href="/admin/profile">
-                      <i className="fa fa-user" aria-hidden="true"></i>{" "}
-                      <label className="admin">Profile</label>{" "}
+                      <Avatar
+                        color={Avatar.getRandomColor("sitebase", [
+                          "red",
+                          "green",
+                          "blue",
+                        ])}
+                        name={this.state.fullname}
+                        size={50}
+                        round={true}
+                        src={`http://localhost:3012/images/${this.state.image}`}
+                      />
                     </Nav.Link>
                     <Nav.Link eventKey={2} href="#memes">
                       <button

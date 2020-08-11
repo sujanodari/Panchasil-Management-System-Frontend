@@ -7,7 +7,7 @@ class RegistrationNav extends Component {
     return (
       <>
         <div className="container-fluid">
-          <Navbar className="school" bg="light dark">
+          <Navbar className="school" bg="light dark" fixed="top">
             <Navbar.Brand href="/register">
               <img src={Logo} alt="logo" align="center" className="img-fluid" />
             </Navbar.Brand>

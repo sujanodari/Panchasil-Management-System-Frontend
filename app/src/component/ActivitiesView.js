@@ -26,7 +26,7 @@ class ActivitiesView extends Component {
             <div className="row">
               {activities.map((activities) => (
                 <div className="col-md-4 fix-activities">
-                  <Card>
+                  <Card className="mycard">
                     {activities.image == null ? (
                       <Card.Img
                         variant="top"
@@ -34,7 +34,9 @@ class ActivitiesView extends Component {
                         className="fix-image"
                       />
                     ) : (
-                      <a href={`http://localhost:3012/images/${activities.image}`}>
+                      <a
+                        href={`http://localhost:3012/images/${activities.image}`}
+                      >
                         <Card.Img
                           variant="top"
                           src={`http://localhost:3012/images/${activities.image}`}

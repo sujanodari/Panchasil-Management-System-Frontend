@@ -51,7 +51,11 @@ class ViewExam extends Component {
           <div className="row">
             {this.state.exam.map((exam) => (
               <div className="col-md-4 fix-news">
-                <Card border="danger" style={{ width: "18rem" }}>
+                <Card
+                  className="mycard"
+                  border="danger"
+                  style={{ width: "18rem" }}
+                >
                   <Card.Header>ExamID: {exam.ExamId} </Card.Header>
                   <Card.Body>
                     <Card.Title>Exam type: {exam.Exam_type}</Card.Title>

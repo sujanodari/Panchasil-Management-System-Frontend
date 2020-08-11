@@ -69,7 +69,11 @@ class ViewClass extends Component {
             <div className="row">
               {this.state.allClass.map((allClass) => (
                 <div className="col-md-4 fix-news">
-                  <Card border="danger" style={{ width: "18rem" }}>
+                  <Card
+                    border="danger"
+                    style={{ width: "18rem" }}
+                    className="mycard"
+                  >
                     <Card.Header>ClassID: {allClass.classId}</Card.Header>
                     <Card.Body>
                       <Card.Title>Class: {allClass.class}</Card.Title>
@@ -94,7 +98,6 @@ class ViewClass extends Component {
 
                             <br />
 
-                            
                             <Button
                               className="btn-danger btn btn-block"
                               onClick={() =>
@@ -117,12 +120,12 @@ class ViewClass extends Component {
                         <br />
 
                         <a
-                              href={"/updateClass/" + allClass.classId}
-                              className="btn btn-dark btn-block"
-                            >
-                              Edit
-                            </a>
-                            <br />
+                          href={"/updateClass/" + allClass.classId}
+                          className="btn btn-dark btn-block"
+                        >
+                          Edit
+                        </a>
+                        <br />
 
                         <Button
                           className="btn-danger btn btn-block"
@@ -149,6 +152,7 @@ class ViewClass extends Component {
             </div>
           )}
         </div>
+        <br />
       </>
     );
   }
