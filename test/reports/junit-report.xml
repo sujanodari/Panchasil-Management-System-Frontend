@@ -1,17 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="view-fee-of-class;view-fee" tests="3" failures="0" skipped="0">
+    <testsuite name="approve-user;approve-user" tests="3" failures="1" skipped="2">
         <properties>
             <property name="@search" value="true">
             </property>
-            <property name="URI" value="C:/Users/baxan/Desktop/New folder/bdd/Panchasil-Management-System-Frontend/test/features/fee.feature">
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/approve.feature">
             </property>
         </properties>
-        <testcase name="Given I am admin logged in" classname="view-fee-of-class;view-fee" time="7.306321701">
+        <testcase name="Given I am on the admin approve page" classname="approve-user;approve-user" time="15.002983701">
+            <failure message="function timed out after 15000 milliseconds">function timed out after 15000 milliseconds</failure>
         </testcase>
-        <testcase name="When I am on the  view fee page" classname="view-fee-of-class;view-fee" time="0.9501701">
+        <testcase name="When I click approve" classname="approve-user;approve-user">
+            <skipped message="">
+            </skipped>
         </testcase>
-        <testcase name="Then I should see the &quot;Tuition Fee: 1000&quot;" classname="view-fee-of-class;view-fee" time="0.044646399">
+        <testcase name="Then I should not see the user" classname="approve-user;approve-user">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="add-attendence-of-students;add-attendence-of-students" tests="3" failures="1" skipped="2">
+        <properties>
+            <property name="@attendence" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/attendence.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in staff user" classname="add-attendence-of-students;add-attendence-of-students" time="15.000641699">
+            <failure message="function timed out after 15000 milliseconds">function timed out after 15000 milliseconds</failure>
+        </testcase>
+        <testcase name="When I am on attendence page and click add button" classname="add-attendence-of-students;add-attendence-of-students">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should see &quot;Attendence&quot; in the attendence page" classname="add-attendence-of-students;add-attendence-of-students">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="enroll-students/staff;view-enroll-students/staff" tests="3" failures="1" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/enroll.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in Admin user" classname="enroll-students/staff;view-enroll-students/staff" time="13.960939001">
+        </testcase>
+        <testcase name="When I am on view enroll page" classname="enroll-students/staff;view-enroll-students/staff" time="1.1874722">
+        </testcase>
+        <testcase name="Then I should see &quot;EnrollId&quot; in the enroll" classname="enroll-students/staff;view-enroll-students/staff" time="0.0459243">
+            <failure message="NoSuchElementError: Unable to locate element: /html/body/div[1]/div[2]/div/table/thead/tr/th[1]">NoSuchElementError: Unable to locate element: /html/body/div[1]/div[2]/div/table/thead/tr/th[1]
+    at Object.throwDecodedError (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\error.js:550:15)
+    at parseHttpResponse (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:565:13)
+    at Executor.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:491:26)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async thenableWebDriverProxy.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:700:17)
+    at async toWireValue (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:139:15)
+    at async C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:190:16
+    at async forEachKey (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:184:9)
+    at async convertKeys (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:189:3)
+    at async thenableWebDriverProxy.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:698:22)</failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="view-fee-of-class;view-fee" tests="3" failures="1" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/fee.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am admin logged in" classname="view-fee-of-class;view-fee" time="12.980096501">
+        </testcase>
+        <testcase name="When I am on the  view fee page" classname="view-fee-of-class;view-fee" time="0.925405899">
+        </testcase>
+        <testcase name="Then I should see the &quot;Tuition Fee: 1000&quot;" classname="view-fee-of-class;view-fee" time="0.094763399">
+            <failure message="AssertionError: expected &apos;Tuition Fee: 1000&apos; to equal &apos;Tuition Fee: 3000&apos;">AssertionError: expected &apos;Tuition Fee: 1000&apos; to equal &apos;Tuition Fee: 3000&apos;
+    at C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\step-definitions\fee-steps.js:13:17
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="login-in-panchasil;login-for-registered-and-approved-user" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/login.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am on the Panchasil Login page" classname="login-in-panchasil;login-for-registered-and-approved-user" time="11.789423901">
+        </testcase>
+        <testcase name="When I enter &quot;baxanacharya@gmail.com&quot; and I enter &quot;baxan1234&quot; and I click login" classname="login-in-panchasil;login-for-registered-and-approved-user" time="0.8321327">
+        </testcase>
+        <testcase name="Then I should see &quot;Welcome&quot; in the results" classname="login-in-panchasil;login-for-registered-and-approved-user" time="0.068864101">
+        </testcase>
+    </testsuite>
+    <testsuite name="view-news;view-news" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/news.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in userType" classname="view-news;view-news" time="13.0022791">
+        </testcase>
+        <testcase name="When I am on view news page" classname="view-news;view-news" time="0.814711501">
+        </testcase>
+        <testcase name="Then I should see &quot;Posted By:&quot; in the news" classname="view-news;view-news" time="0.062927801">
+        </testcase>
+    </testsuite>
+    <testsuite name="view-notice;view-notice" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/notice.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in user" classname="view-notice;view-notice" time="13.4296694">
+        </testcase>
+        <testcase name="When I am on view notice page" classname="view-notice;view-notice" time="0.5982298">
+        </testcase>
+        <testcase name="Then I should see &quot;Posted By:&quot; in the notice" classname="view-notice;view-notice" time="0.101931999">
+        </testcase>
+    </testsuite>
+    <testsuite name="register-in-panchasil;user-registeration-vaidation-test" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/registration.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am on the Panchasil Registration page" classname="register-in-panchasil;user-registeration-vaidation-test" time="12.0140331">
+        </testcase>
+        <testcase name="When I enter &quot;odarisujan@gmail.com&quot; and I enter &quot;Sujan Odari&quot; and I enter &quot;Male&quot; and I enter &quot;Damak&quot; and I enter &quot;08/24/2000&quot; and I enter &quot;9817091757&quot; and I enter &quot;Sujan Odari&quot; and I enter &quot;Damak&quot; and I enter &quot;9800987689&quot; and I enter &quot;Cat&quot; and I enter &quot;Student&quot; and I enter &quot;sujan1234&quot; and I enter &quot;sujan098&quot;" classname="register-in-panchasil;user-registeration-vaidation-test" time="1.900364">
+        </testcase>
+        <testcase name="Then I should see &quot;The date field is required.&quot;" classname="register-in-panchasil;user-registeration-vaidation-test" time="0.358150499">
+        </testcase>
+    </testsuite>
+    <testsuite name="routine;view-routine" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/routine.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am loggedin user" classname="routine;view-routine" time="12.114267799">
+        </testcase>
+        <testcase name="When I am on view Routine page" classname="routine;view-routine" time="0.823662699">
+        </testcase>
+        <testcase name="Then I should see &quot;Delete Routine&quot; in the routine" classname="routine;view-routine" time="0.0620385">
+        </testcase>
+    </testsuite>
+    <testsuite name="view-salary;view-salary" tests="3" failures="1" skipped="0">
+        <properties>
+            <property name="@salary" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/salary.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in staff" classname="view-salary;view-salary" time="12.926044">
+        </testcase>
+        <testcase name="When I am on view profile page" classname="view-salary;view-salary" time="0.6584141">
+        </testcase>
+        <testcase name="Then I should see salary &quot;9000000&quot;" classname="view-salary;view-salary" time="0.0412191">
+            <failure message="NoSuchElementError: Unable to locate element: /html/body/div/div[2]/div/div[1]/div/div[2]/p/div/div/div[2]/p[4]/b">NoSuchElementError: Unable to locate element: /html/body/div/div[2]/div/div[1]/div/div[2]/p/div/div/div[2]/p[4]/b
+    at Object.throwDecodedError (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\error.js:550:15)
+    at parseHttpResponse (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:565:13)
+    at Executor.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:491:26)
+    at runMicrotasks (&lt;anonymous&gt;)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async thenableWebDriverProxy.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:700:17)
+    at async toWireValue (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:139:15)
+    at async C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:190:16
+    at async forEachKey (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:184:9)
+    at async convertKeys (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:189:3)</failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="search-students/staff;search-students/staff" tests="3" failures="1" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/search.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in Admin user-type" classname="search-students/staff;search-students/staff" time="14.461828299">
+        </testcase>
+        <testcase name="When I am on view search page and I choose &quot;fullname&quot; and I enter &quot;ram&quot;" classname="search-students/staff;search-students/staff" time="0.4061926">
+        </testcase>
+        <testcase name="Then I should see &quot;Enroll&quot; in the search" classname="search-students/staff;search-students/staff" time="0.139358399">
+            <failure message="NoSuchElementError: Unable to locate element: /html/body/div[1]/div/div[4]/div/div/div/div[2]/p/div/div/div/table/tbody/tr/td[6]/a">NoSuchElementError: Unable to locate element: /html/body/div[1]/div/div[4]/div/div/div/div[2]/p/div/div/div/table/tbody/tr/td[6]/a
+    at Object.throwDecodedError (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\error.js:550:15)
+    at parseHttpResponse (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:565:13)
+    at Executor.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:491:26)
+    at runMicrotasks (&lt;anonymous&gt;)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async thenableWebDriverProxy.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:700:17)
+    at async toWireValue (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:139:15)
+    at async C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:190:16
+    at async forEachKey (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:184:9)
+    at async convertKeys (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:189:3)</failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="view-student-fee-details;view-student-fee-details" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="@view student fee details" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/studentFee.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in student" classname="view-student-fee-details;view-student-fee-details" time="13.5098383">
+        </testcase>
+        <testcase name="When I click on profile" classname="view-student-fee-details;view-student-fee-details" time="1.457888799">
+        </testcase>
+        <testcase name="Then I should see fee details &quot;Fee Details&quot;" classname="view-student-fee-details;view-student-fee-details" time="0.0984425">
+        </testcase>
+    </testsuite>
+    <testsuite name="view-subject;view-subject" tests="3" failures="1" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="C:/Users/acer/Desktop/aGILE/Panchasil-Management-System-Frontend/test/features/subject.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in userType Admin" classname="view-subject;view-subject" time="13.151838599">
+        </testcase>
+        <testcase name="When I am on view subject page" classname="view-subject;view-subject" time="0.7370418">
+        </testcase>
+        <testcase name="Then I should see &quot;Add Subjects for class&quot; in the subject" classname="view-subject;view-subject" time="0.020269399">
+            <failure message="NoSuchElementError: Unable to locate element: /html/body/div[1]/div[2]/div/div/div[1]/div/div/a">NoSuchElementError: Unable to locate element: /html/body/div[1]/div[2]/div/div/div[1]/div/div/a
+    at Object.throwDecodedError (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\error.js:550:15)
+    at parseHttpResponse (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:565:13)
+    at Executor.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\http.js:491:26)
+    at runMicrotasks (&lt;anonymous&gt;)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async thenableWebDriverProxy.execute (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:700:17)
+    at async toWireValue (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:139:15)
+    at async C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:190:16
+    at async forEachKey (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:184:9)
+    at async convertKeys (C:\Users\acer\Desktop\aGILE\Panchasil-Management-System-Frontend\test\node_modules\selenium-webdriver\lib\webdriver.js:189:3)</failure>
         </testcase>
     </testsuite>
 </testsuites>
