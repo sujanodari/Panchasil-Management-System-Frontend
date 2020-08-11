@@ -26,7 +26,7 @@ class Notice extends Component {
             <div className="row">
               {notices.map((notices) => (
                 <div className="col-md-4 fix-news" key={notices.noticeId}>
-                  <Card>
+                  <Card className="mycard">
                     {notices.image == null ? (
                       <Card.Img
                         variant="top"
@@ -44,16 +44,15 @@ class Notice extends Component {
                       </a>
                     )}
                     <Card.Body>
-                    {
-                        localStorage.getItem("type")==="Admin" && localStorage.getItem("myToken") ?
+                      {localStorage.getItem("type") === "Admin" &&
+                      localStorage.getItem("myToken") ? (
                         <small>
-                        <a href={`noticeImageUpdate/${notices.noticeId}`}>
-                          {" "}
-                          Edit Image{" "}
-                        </a>
-                      </small>
-                        :null
-                      }
+                          <a href={`noticeImageUpdate/${notices.noticeId}`}>
+                            {" "}
+                            Edit Image{" "}
+                          </a>
+                        </small>
+                      ) : null}
                       <Card.Title>{notices.title}</Card.Title>
                       <Card.Text>{notices.description}</Card.Text>
                     </Card.Body>
@@ -61,11 +60,12 @@ class Notice extends Component {
                       <small className="text-muted">
                         <label name="posted">Posted By:</label>
                         {notices.name} at {notices.createdAt}
-                        {
-                        localStorage.getItem("type")==="Admin" ?
-                        <a href={`noticeUpdate/${notices.noticeId}`}> Edit </a>
-                        :null
-                      }
+                        {localStorage.getItem("type") === "Admin" ? (
+                          <a href={`noticeUpdate/${notices.noticeId}`}>
+                            {" "}
+                            Edit{" "}
+                          </a>
+                        ) : null}
                       </small>
                     </Card.Footer>
                   </Card>
@@ -74,6 +74,7 @@ class Notice extends Component {
             </div>
           )}
         </div>
+        <br />
       </>
     );
   }

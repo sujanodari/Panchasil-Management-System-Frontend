@@ -45,7 +45,10 @@ class RetrieveAssignment extends Component {
   }
   handleDelete = (id) => {
     axois
-      .delete("http://localhost:3012/api/v1/teacherassignment/" + id, this.state.config)
+      .delete(
+        "http://localhost:3012/api/v1/teacherassignment/" + id,
+        this.state.config
+      )
       .then(function (response) {
         window.location.reload();
       })
@@ -66,7 +69,7 @@ class RetrieveAssignment extends Component {
               {this.state.allclasses.map((allclasses) => (
                 <div className="col-md-4">
                   <Card
-                    className="fix-news"
+                    className="fix-news mycard"
                     border="success"
                     style={{ width: "18rem" }}
                   >
@@ -108,22 +111,23 @@ class RetrieveAssignment extends Component {
                       </Card.Text>
                     </Card.Body>
                     <Button
-                    className="btn btn-danger"
-                    type="submit"
-                    onClick={() => {
-                      if (window.confirm("Are you sure??"))
-                        this.handleDelete(allclasses.assignmentId);
-                    }}
-                    // onClick={() => this.handleDelete(allUsers.userId, index)}
-                  >
-                    Delete
-                  </Button>
+                      className="btn btn-danger"
+                      type="submit"
+                      onClick={() => {
+                        if (window.confirm("Are you sure??"))
+                          this.handleDelete(allclasses.assignmentId);
+                      }}
+                      // onClick={() => this.handleDelete(allUsers.userId, index)}
+                    >
+                      Delete
+                    </Button>
                   </Card>
                 </div>
               ))}
             </div>
           </div>
         )}
+        <br />
       </>
     );
   }

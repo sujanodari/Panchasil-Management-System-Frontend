@@ -60,7 +60,7 @@ class Profile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8">
-              <Card className="text-center fix-news">
+              <Card className="text-center fix-news mycard">
                 <Card.Header>
                   {this.state.user.image ? (
                     <p>
@@ -68,7 +68,7 @@ class Profile extends Component {
                         href={`http://localhost:3012/images/${this.state.user.image}`}
                       >
                         <Card.Img
-                         style={{ height: "30rem" }}
+                          style={{ height: "30rem" }}
                           variant="top"
                           src={`http://localhost:3012/images/${this.state.user.image}`}
                           className="fix-image"
@@ -167,7 +167,7 @@ class Profile extends Component {
             <div className="col-md-4">
               <div className="container">
                 <Card
-                  className="fix-news"
+                  className="fix-news mycard"
                   border="success"
                   style={{ width: "18rem" }}
                 >
@@ -183,7 +183,7 @@ class Profile extends Component {
               </div>
               <div className="container">
                 <Card
-                  className="fix-news"
+                  className="fix-news mycard"
                   border="secondary"
                   style={{ width: "18rem" }}
                 >
@@ -197,6 +197,7 @@ class Profile extends Component {
             </div>
           </div>
         </div>
+        <br />
       </>
     );
   }

@@ -73,7 +73,7 @@ class Subject extends Component {
             <div className="row">
               {this.state.subject.map((subjects) => (
                 <div className="col-md-4 fix-news">
-                  <Card>
+                  <Card className="mycard">
                     <Card.Body>
                       <Card.Title>{subjects.subjectName}</Card.Title>
                       <a
@@ -84,12 +84,15 @@ class Subject extends Component {
                       </a>
 
                       <Link to={`/updateSubject/${subjects.subId}`}>
-                        <Button variant="secondary" 
-                        type="submit" 
-                         className="btn-block">
+                        <Button
+                          variant="secondary"
+                          type="submit"
+                          className="btn-block"
+                        >
                           Edit
                         </Button>
-                      </Link><br/>
+                      </Link>
+                      <br />
 
                       <Button
                         variant="success"

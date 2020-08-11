@@ -3,8 +3,33 @@ import "../../App.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Logo from "./logo.png";
-// import NavDropdown from 'react-bootstrap/NavDropdown'
+import Avatar from "react-avatar";
+import axois from "axios";
 class StudentNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullname: "",
+      image: "",
+      config: {
+        headers: { Authorization: ` ${localStorage.getItem("myToken")}` },
+      },
+      notices: [],
+    };
+  }
+
+  componentDidMount() {
+    //for getting username
+    axois
+      .get("http://localhost:3012/api/v1/decode", this.state.config)
+      .then((response) => {
+        this.setState({
+          fullname: response.data.fullName,
+          image: response.data.image,
+        });
+      });
+  }
+
   handleLogout() {
     localStorage.removeItem("type");
     localStorage.removeItem("myToken");
@@ -21,7 +46,7 @@ class StudentNav extends Component {
             <Navbar.Toggle />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto"></Nav>
-              <Nav>
+              <Nav className="center">
                 <Nav.Link href="/student/viewAssignment">
                   <i className="fa fa-book" aria-hidden="true"></i>{" "}
                   <label className="admin">View Assignment</label>{" "}
@@ -31,8 +56,17 @@ class StudentNav extends Component {
                   <label className="admin">View Activities</label>{" "}
                 </Nav.Link>
                 <Nav.Link href="/student/profile">
-                  <i className="fa fa-user" aria-hidden="true"></i>{" "}
-                  <label className="admin">Profile</label>{" "}
+                  <Avatar
+                    color={Avatar.getRandomColor("sitebase", [
+                      "red",
+                      "green",
+                      "blue",
+                    ])}
+                    name={this.state.fullname}
+                    size={50}
+                    round={true}
+                    src={`http://localhost:3012/images/${this.state.image}`}
+                  />
                 </Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
                   <button

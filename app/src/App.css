@@ -1,10 +1,12 @@
 #body {
   background-color: #eae8e7;
 }
+* {
+  margin: 0;
+}
 .school {
   color: #d2691e;
   font-size: 25px;
-  margin-top: 20px;
 }
 .register {
   color: rgba(0, 0, 0, 0.9);
@@ -27,7 +29,7 @@
 
 .size {
   max-width: 100%;
-  height: auto;
+  height: 100px;
 }
 
 .table-fixed {
@@ -56,10 +58,29 @@
   margin-top: 25px;
 }
 .footer {
-  background-color: #f8f9fa;
+  background-color: #f8f9fa !important;
   /* height: 50px; */
   color: black;
   align-items: center;
   position: fixed;
   bottom: 0;
+}
+
+.center {
+  align-items: center;
+}
+.mycard {
+  transition: transform 450ms;
+}
+
+.mycard:hover {
+  transform: scale(1.08);
+  /* opacity: 1; */
+}
+
+.sb-avatar__image {
+  transition: transform 420ms !important;
+}
+.sb-avatar__image:hover {
+  transform: scale(1.08) !important;
 }
