@@ -59,8 +59,9 @@ import RetrieveQuestion from "./component/dashboard/staff/RetrieveQuestion";
 // for activities
 import addActivities from "./component/dashboard/admin/AddActivities";
 import ViewActivities from "./component/dashboard/admin/ViewActivities";
+import StaffaddActivities from "./component/dashboard/staff/AddActivities";
+import ViewStaffActivites from "./component/dashboard/staff/ViewActivities";
 import StidentViewActivities from "./component/dashboard/student/ViewActivities";
-// import StaffaddActivities from "./component/dashboard/staff/AddActivities";
 
 import AddExam from "./component/dashboard/staff/AddExam";
 import ViewExam from "./component/dashboard/staff/ViewExam";
@@ -107,7 +108,16 @@ function App() {
       <PrivateStaff exact path="/staff/add/exam" component={AddExam} />
       <PrivateStaff exact path="/staff/view/exam" component={ViewExam} />
       <PrivateStaff exact path="/exam/user/:id" component={ExamUser} />
-
+      <PrivateStaff
+        exact
+        path="/staff/addactivities"
+        component={StaffaddActivities}
+      />
+      <PrivateStaff
+        exact
+        path="/staff/viewactivities"
+        component={ViewStaffActivites}
+      />
       <PrivateStaff
         exact
         path="/notice/view/staff"
@@ -142,10 +152,7 @@ function App() {
         path="/staff/retrieve"
         component={teacherviewAssignment}
       />
-
-      {/* for activities */}
       <PrivateAdmin exact path="/activities/add" component={addActivities} />
-      {/* <PrivateStaff exact path="/staff/addactivities" component={StaffaddActivities} /> */}
       <PrivateAdmin exact path="/activities/view" component={ViewActivities} />
       <Private
         exact
