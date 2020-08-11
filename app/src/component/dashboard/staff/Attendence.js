@@ -113,30 +113,40 @@ class Attendence extends Component {
                           this.state.student_name = user.fullName;
                           this.state.email = user.email;
                           this.state.attendence = user.attendance;
+                          return (
+                            <>
+                              <td>{this.state.user_id}</td>
+                              <td>{this.state.student_name}</td>
+                              <td>{this.state.attendence}</td>
+                              <td>{this.state.email}</td>
+                              <td>
+                                <a
+                                  className="btn btn-success"
+                                  name="addAttendence"
+                                  id="add"
+                                  href={`/attendence/add/${this.state.user_id}`}
+                                >
+                                  <i
+                                    className="fa fa-plus"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a>
+                                <a
+                                  className="btn btn-primary"
+                                  name="subAttendence"
+                                  id="sub"
+                                  href={`/attendence/sub/${this.state.user_id}`}
+                                >
+                                  <i
+                                    className="fa fa-minus"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a>
+                              </td>
+                            </>
+                          );
                         }
                       })}
-                      <td>{this.state.user_id}</td>
-                      <td>{this.state.student_name}</td>
-                      <td>{this.state.attendence}</td>
-                      <td>{this.state.email}</td>
-                      <td>
-                        <a
-                          className="btn btn-success"
-                          name="addAttendence"
-                          id="add"
-                          href={`/attendence/add/${this.state.user_id}`}
-                        >
-                          <i className="fa fa-plus" aria-hidden="true"></i>
-                        </a>
-                        <a
-                          className="btn btn-primary"
-                          name="subAttendence"
-                          id="sub"
-                          href={`/attendence/sub/${this.state.user_id}`}
-                        >
-                          <i className="fa fa-minus" aria-hidden="true"></i>
-                        </a>
-                      </td>
                     </tr>
                   ))}
                 </tbody>

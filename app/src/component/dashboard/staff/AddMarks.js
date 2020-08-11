@@ -95,8 +95,6 @@ class AddMarks extends Component {
             </p>
           ) : (
             <>
-              {" "}
-              <h4 align="center">No of Students: {this.state.users.length}</h4>
               <Table
                 responsive
                 striped
@@ -129,23 +127,27 @@ class AddMarks extends Component {
                           this.state.email = user.email;
                           this.state.userType = user.userType;
                           this.state.attendance = user.attendance;
+                          return (
+                            <>
+                              <td>{this.state.user_id}</td>
+                              <td>{this.state.student_name}</td>
+                              <td>{this.state.attendance}</td>
+                              <td>{this.state.userType}</td>
+                              <td> {this.state.email}</td>
+                              <td>
+                                <a
+                                  href={`addMarks/${this.state.user_id}`}
+                                  className="btn btn-secondary"
+                                >
+                                  {" "}
+                                  Add Marks{" "}
+                                </a>
+                              </td>
+                              <td></td>
+                            </>
+                          );
                         }
                       })}
-                      <td>{this.state.user_id}</td>
-                      <td>{this.state.student_name}</td>
-                      <td>{this.state.attendance}</td>
-                      <td>{this.state.userType}</td>
-                      <td> {this.state.email}</td>
-                      <td>
-                      <a
-                      href={`addMarks/${this.state.user_id}`}
-                      className="btn btn-secondary"
-                    >
-                      {" "}
-                      Add Marks{" "}
-                    </a>
-                      </td>
-                      <td></td>
                     </tr>
                   ))}
                 </tbody>
