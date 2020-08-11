@@ -73,10 +73,10 @@ import studentDetails from "./component/dashboard/admin/StudentDetails";
 import FeeDetails from "./component/dashboard/admin/FeeDetails";
 import FeeReport from "./component/dashboard/admin/FeeClearanceReport";
 import FeeInvoiceReport from "./component/dashboard/admin/FeeInvoiceReport";
-import AddMarks from './component/dashboard/staff/AddMarks';
-import ViewMarks from './component/dashboard/staff/ViewMarks';
-import UpdateExamMarks from './component/dashboard/staff/UpdateExamMarks';
-import AddMark from './component/dashboard/staff/AddMark';
+import AddMarks from "./component/dashboard/staff/AddMarks";
+import ViewMarks from "./component/dashboard/staff/ViewMarks";
+import UpdateExamMarks from "./component/dashboard/staff/UpdateExamMarks";
+import AddMark from "./component/dashboard/staff/AddMark";
 
 function App() {
   return (
@@ -90,10 +90,14 @@ function App() {
 
       <PrivateStaff exact path="/staff" component={StaffDashboard} />
       <PrivateStaff exact path="/staff/question" component={AddQuestion} />
-      <PrivateStaff exact path ="/staff/add/addMarks/:id" component={AddMark}/>
-      <PrivateStaff exact path="/staff/add/marks" component={AddMarks}/>
-     <PrivateStaff exact path="/staff/view/marks" component={ViewMarks}/>
-     <PrivateStaff exact path="/staff/view/updateMarks/:id" component={UpdateExamMarks}/>
+      <PrivateStaff exact path="/staff/add/addMarks/:id" component={AddMark} />
+      <PrivateStaff exact path="/staff/add/marks" component={AddMarks} />
+      <PrivateStaff exact path="/staff/view/marks" component={ViewMarks} />
+      <PrivateStaff
+        exact
+        path="/staff/view/updateMarks/:id"
+        component={UpdateExamMarks}
+      />
       <PrivateStaff
         exact
         path="/staff/retrieveQuestion"
@@ -236,11 +240,17 @@ function App() {
         component={FeeReport}
       />
 
-      <PrivateAdmin 
-      exact
-      path="/report/feeInvoiceReports/:id"
-      component={FeeInvoiceReport}
+      <PrivateAdmin
+        exact
+        path="/report/feeInvoiceReports/:id"
+        component={FeeInvoiceReport}
       />
+      <br />
+      <div className="container-fluid footer">
+        <p align="center">
+          All Rights Reserved By : <strong> @Greatlee</strong>
+        </p>
+      </div>
     </BrowserRouter>
   );
 }

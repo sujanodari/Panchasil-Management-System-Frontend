@@ -13,10 +13,10 @@ class AdminNav extends Component {
   render() {
     return (
       <>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <Navbar bg="light dark">
+              <Navbar bg="light dark" fixed="top">
                 <Navbar.Brand href="/admin">
                   <img
                     src={Logo}
@@ -133,6 +133,12 @@ class AdminNav extends Component {
             </div>
           </div>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </>
     );
   }

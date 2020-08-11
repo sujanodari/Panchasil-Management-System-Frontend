@@ -1,28 +1,27 @@
-#body{
-  background-color: #EAE8E7
+#body {
+  background-color: #eae8e7;
 }
-.school{
-  color: #D2691E;
+.school {
+  color: #d2691e;
   font-size: 25px;
   margin-top: 20px;
 }
-.register{
-  color: rgba(0,0,0,.9);
+.register {
+  color: rgba(0, 0, 0, 0.9);
 }
 .fixed {
-   padding: 40px;
-   background-color:#9b9b9b;
-   margin-top: 100px;
-   margin-block-end: 20px;
+  padding: 40px;
+  background-color: #9b9b9b;
+  margin-top: 100px;
+  margin-block-end: 20px;
   -webkit-box-shadow: 2px 3px 18px 9px rgba(0, 0, 0, 1);
   -moz-box-shadow: 2px 3px 18px 9px rgba(0, 0, 0, 1);
   box-shadow: 2px 3px 18px 9px rgba(0, 0, 0, 1);
-
 }
-#sub{
+#sub {
   margin-left: 25px;
 }
-#add{
+#add {
   margin-left: 25px;
 }
 
@@ -31,28 +30,36 @@
   height: auto;
 }
 
-.table-fixed{
+.table-fixed {
   padding: 40px;
   margin-top: 10px;
   background-color: #c2d0dc;
   margin-block-end: 20px;
 }
-.forget{
+.forget {
   font-size: 20px;
   padding-left: 108px;
 }
-.button{
-  border-radius: 30px,
-  
+.button {
+  border-radius: 30px;
 }
-.labelColor{
-  color:red;
+.labelColor {
+  color: red;
 }
 
-.fix-image{
+.fix-image {
   height: 221px;
+  object-fit: contain;
 }
 
-.fix-news{
+.fix-news {
   margin-top: 25px;
+}
+.footer {
+  background-color: #f8f9fa;
+  /* height: 50px; */
+  color: black;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
 }
