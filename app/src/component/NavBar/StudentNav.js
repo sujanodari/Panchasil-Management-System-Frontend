@@ -5,6 +5,11 @@ import Nav from "react-bootstrap/Nav";
 import Logo from "./logo.png";
 // import NavDropdown from 'react-bootstrap/NavDropdown'
 class StudentNav extends Component {
+  handleLogout() {
+    localStorage.removeItem("type");
+    localStorage.removeItem("myToken");
+    window.location.reload();
+  }
   render() {
     return (
       <>

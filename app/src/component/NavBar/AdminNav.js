@@ -5,6 +5,11 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo from "./logo.png";
 class AdminNav extends Component {
+  handleLogout() {
+    localStorage.removeItem("type");
+    localStorage.removeItem("myToken");
+    window.location.reload();
+  }
   render() {
     return (
       <>
