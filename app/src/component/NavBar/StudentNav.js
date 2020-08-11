@@ -13,8 +13,8 @@ class StudentNav extends Component {
   render() {
     return (
       <>
-        <div className="container">
-          <Navbar bg="light dark">
+        <div className="container-fluid">
+          <Navbar bg="light dark" fixed="top">
             <Navbar.Brand href="/staff">
               <img src={Logo} alt="logo" align="center" className="img-fluid" />
             </Navbar.Brand>
@@ -46,6 +46,12 @@ class StudentNav extends Component {
             </Navbar.Collapse>
           </Navbar>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </>
     );
   }

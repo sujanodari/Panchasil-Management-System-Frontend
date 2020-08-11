@@ -13,8 +13,8 @@ class StaffNav extends Component {
   render() {
     return (
       <>
-        <div className="container">
-          <Navbar bg="light dark">
+        <div className="container-fluid">
+          <Navbar bg="light dark" fixed="top">
             <Navbar.Brand href="/staff">
               <img src={Logo} alt="logo" align="center" className="img-fluid" />
             </Navbar.Brand>
@@ -56,9 +56,19 @@ class StaffNav extends Component {
                 </NavDropdown>
 
                 <Nav className="mr-auto">
-                  <NavDropdown className="admin" title="Exam" id="collasible-nav-exam">
-                    <NavDropdown.Item href="/staff/add/exam"><i className="fa fa-plus" aria-hidden="true"></i>  <label className="admin">Add Exam</label></NavDropdown.Item>
-                    <NavDropdown.Item href="/staff/view/exam"><i className="fa fa-book" aria-hidden="true"></i>  <label className="admin">View Exam</label></NavDropdown.Item>
+                  <NavDropdown
+                    className="admin"
+                    title="Exam"
+                    id="collasible-nav-exam"
+                  >
+                    <NavDropdown.Item href="/staff/add/exam">
+                      <i className="fa fa-plus" aria-hidden="true"></i>{" "}
+                      <label className="admin">Add Exam</label>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/staff/view/exam">
+                      <i className="fa fa-book" aria-hidden="true"></i>{" "}
+                      <label className="admin">View Exam</label>
+                    </NavDropdown.Item>
                     <NavDropdown.Item href="/staff/view/marks">
                       <i className="fa fa-book" aria-hidden="true"></i>{" "}
                       <label className="admin">View Marks</label>
@@ -88,6 +98,12 @@ class StaffNav extends Component {
             </Navbar.Collapse>
           </Navbar>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </>
     );
   }
