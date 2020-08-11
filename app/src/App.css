@@ -84,3 +84,6 @@
 .sb-avatar__image:hover {
   transform: scale(1.08) !important;
 }
+.fix-activities {
+  margin-top: 25px;
+}

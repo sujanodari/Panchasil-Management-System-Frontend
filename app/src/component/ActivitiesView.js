@@ -1,15 +1,33 @@
 import React, { Component } from "react";
 import "../App.css";
 import Card from "react-bootstrap/Card";
-
+import axois from "axios";
 import NoImage from "./noimage.jpg";
+import { Button } from "react-bootstrap";
 class ActivitiesView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activities: {},
+      config: {
+        headers: { Authorization: ` ${localStorage.getItem("myToken")}` },
+      },
     };
   }
+  handleDelete = (id) => {
+    axois
+      .delete(
+        `http://localhost:3012/api/v1/activities/${id}`,
+        this.state.config
+      )
+      .then((response) => {
+        console.log(response.data);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
   render() {
     const { activities } = this.props;
     return (
@@ -57,12 +75,29 @@ class ActivitiesView extends Component {
                         {activities.name} at {activities.createdAt}
                       </small>
                     </Card.Footer>
+                    {localStorage.getItem("type") === "Admin" ||
+                    localStorage.getItem("type") === "Staff" ? (
+                      <>
+                        <br />
+                        <Button
+                          className="btn btn-danger"
+                          type="submit"
+                          onClick={() =>
+                            this.handleDelete(activities.activitiesId)
+                          }
+                        >
+                          Delete
+                        </Button>
+                      </>
+                    ) : null}
                   </Card>
                 </div>
               ))}
             </div>
           )}
         </div>
+        <br />
+        <br />
       </>
     );
   }

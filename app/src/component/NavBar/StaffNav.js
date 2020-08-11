@@ -67,6 +67,20 @@ class StaffNav extends Component {
                     <label className="admin">View Assignment</label>
                   </NavDropdown.Item>
                 </NavDropdown>
+                <NavDropdown
+                  className="admin"
+                  title="Activities"
+                  id="collasible-nav-dropdown2"
+                >
+                  <NavDropdown.Item href="/staff/addactivities">
+                    <i className="fa fa-plus" aria-hidden="true"></i>
+                    <label className="admin">Add activites</label>{" "}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/staff/viewactivities">
+                    <i className="fa fa-book" aria-hidden="true"></i>{" "}
+                    <label className="admin">View activities</label>
+                  </NavDropdown.Item>
+                </NavDropdown>
 
                 <NavDropdown
                   className="admin"

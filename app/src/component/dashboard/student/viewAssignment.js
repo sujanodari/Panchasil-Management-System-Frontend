@@ -6,14 +6,16 @@ import axois from "axios";
 class ViewAssignment extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       userId: "",
       class: "",
       section: "",
-      submissiondate: "",
-      title: "",
-      image: "",
+      Exam_type: "",
+      ExamDate: "",
+      questionBank: "",
       allclasses: [],
+      success: false,
       config: {
         headers: { Authorization: ` ${localStorage.getItem("myToken")}` },
       },
@@ -31,23 +33,39 @@ class ViewAssignment extends Component {
 
         axois
           .get(
-            `http://localhost:3012/api/v1/assignment/${this.state.userId}`,
+            `http://localhost:3012/api/v1/teacherQuestion/${this.state.userId}`,
             this.state.config
           )
           .then((response) => {
-            if (response.data.status === 201) {
-              // console.log(response.data.result.class + "data");
-              //console.log(response.data.result);
-              this.setState({
-                allclasses: response.data.result,
-              });
-            }
+            this.setState({
+              allclasses: response.data,
+            });
+          });
+      });
+  }
+
+  delete(id) {
+    axois
+      .delete("http://localhost:3012/api/v1/question/" + id, this.state.config)
+      .then((response) => {
+        this.setState({
+          success: true,
+        });
+        axois
+          .get(
+            `http://localhost:3012/api/v1/teacherQuestion/${this.state.userId}`,
+            this.state.config
+          )
+          .then((response) => {
+            console.log(response.data);
+            this.setState({
+              allclasses: response.data,
+            });
           });
       });
   }
 
   render() {
-    console.log(this.state.allclasses);
     return (
       <>
         <Nav />
@@ -59,23 +77,36 @@ class ViewAssignment extends Component {
               {this.state.allclasses.map((allclasses) => (
                 <div className="col-md-4">
                   <Card
-                    className="fix-news"
+                    className="fix-news mycard"
                     border="success"
                     style={{ width: "18rem" }}
                   >
-                    <Card.Header>Assignment Details</Card.Header>
+                    <Card.Header>Question Details</Card.Header>
                     <Card.Body>
                       <Card.Text>
                         <p>
-                          <b>Title:</b>
+                          <b>Upload Date:</b>
                         </p>
-                        <p>{allclasses.title}</p>
-                        {allclasses.image != null ? (
+                        <p>{allclasses.ExamDate}</p>
+                        <p>
+                          <b>Exam Type: </b>
+                        </p>
+                        <p>{allclasses.Exam_type}</p>
+                        <p>
+                          <b>Class: </b>
+                        </p>
+                        <p>{allclasses.class}</p>
+
+                        <p>
+                          <b>Section: </b>
+                        </p>
+                        <p>{allclasses.section}</p>
+
+                        {allclasses.questionBank != null ? (
                           <div>
                             <p>
                               <b>File:</b>
                             </p>
-
                             <a
                               href={`http://localhost:3012/images/${allclasses.image}`}
                             >
@@ -90,14 +121,6 @@ class ViewAssignment extends Component {
                         ) : (
                           <span></span>
                         )}
-                        <p>
-                          <b>Submission Date: </b>
-                        </p>
-                        <p>{allclasses.submissiondate}</p>
-                        <p>
-                          <b>Publish Date: </b>
-                        </p>
-                        <p>{allclasses.createdAt}</p>
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -106,6 +129,7 @@ class ViewAssignment extends Component {
             </div>
           </div>
         )}
+        <br />
       </>
     );
   }
